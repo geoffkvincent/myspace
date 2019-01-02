@@ -37,7 +37,21 @@ export class AuthProvider extends React.Component {
       })
       .catch(res => {
         console.log(res)
-      }
+      })
+  }
+
+  render() {
+    return (
+      <AuthContext.Provider value = {{
+        ...this.state,
+        authenticated: this.state.user !== null,
+        handleRegister: this.handleRegister,
+        handleLogin: this.handleLogin,
+        handleLogout: this.handleLogout,
+        setUser: (user) => this.setState({ user })
+      }}>
+        { this.props.children }
+      </AuthContext.Provider>
     )
   }
 }
