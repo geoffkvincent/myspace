@@ -38,6 +38,23 @@ class Navbar extends React.Component {
       )
     }
   }
+
+  render() {
+    return (
+      <div>
+        <Menu pointing secondary>
+          <Link to='/'>
+            <Menu.Item
+              id='home'
+              name='home'
+              active={this.props.location.pathname === '/'}
+            />
+          </Link>
+            { this.rightNavItems() }
+        </Menu>
+      </div>
+    )
+  }
 }
 
 export class ConnectedNavbar extends React.Component {
