@@ -10,8 +10,10 @@ class Login extends React.Component {
     this.setState({ [name]: value })
   }
 
-  handleSubmit = () => {
-
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { email, nickname, password } = this.state
+    this.props.auth.handleLogin({ email, nickname, password }, this.props.history)
   }
 
   render() {
@@ -22,7 +24,6 @@ class Login extends React.Component {
         <Form>
           <Form.Input 
             label="Email"
-            autofocus
             required
             name='email'
             value={email}
@@ -31,7 +32,6 @@ class Login extends React.Component {
           />
           <Form.Input 
             label="User Name"
-            autofocus
             required
             name='nickname'
             value={nickname}
@@ -40,7 +40,6 @@ class Login extends React.Component {
             />
           <Form.Input 
             label="Password"
-            autofocus
             required
             name='password'
             value={password}
@@ -56,4 +55,14 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default class ConnectedLogin extends React.Component {
+  render() {
+    return (
+      <AuthConsumer>
+        { auth =>
+          <Login {...this.props} auth={auth} />
+        }
+      </AuthConsumer>
+    )
+  }
+}
