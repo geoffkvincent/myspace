@@ -6,7 +6,7 @@ class FetchUser extends React.Component{
   state = { loaded: false }
 
   componentDidMount() {
-    const { auth: { authenticated, handleLogin}} = this.props
+    const { auth: { authenticated, setUser}} = this.props
 
     if (authenticated) {
       this.loaded()
@@ -14,7 +14,7 @@ class FetchUser extends React.Component{
       if (this.checkLocalToken()) {
         axios.get('/api/auth/validate_token')
           .then( res => {
-            handleLogin(res.data.data)
+            setUser(res.data.data)
             this.loaded()
           })
           .catch( res => {
