@@ -11,7 +11,15 @@ class Navbar extends React.Component {
 }
 
 export class ConnectedNavbar extends React.Component {
-  
+  render() {
+    return (
+      <AuthConsumer>
+        { auth =>
+          <Navbar { ...this.props } auth ={auth} />
+        }
+      </AuthConsumer>
+    )
+  }
 }
 
 export default withRouter(ConnectedNavbar)
