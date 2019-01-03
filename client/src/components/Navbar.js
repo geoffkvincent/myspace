@@ -9,3 +9,9 @@ class Navbar extends React.Component {
     const { auth: { user, handleLogout }, location } = this.props
   }
 }
+
+export class ConnectedNavbar extends React.Component {
+  
+}
+
+export default withRouter(ConnectedNavbar)
