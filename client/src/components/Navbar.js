@@ -7,6 +7,14 @@ class Navbar extends React.Component {
   
   rightNavItems = () => {
     const { auth: { user, handleLogout }, location } = this.props
+
+    if (user) {
+      return (
+        <Menu.Menu position='right'>
+          <
+        </Menu.Menu>
+      )
+    }
   }
 }
 
