@@ -5,6 +5,15 @@ import { Button, Form, Segment, Header} from 'semantic-ui-react'
 class Login extends React.Component {
   state = { email: '', nickname: '', password: '' }
 
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState({ [name]: value })
+  }
+
+  handleSubmit = () => {
+
+  }
+
   render() {
     const { email, nickname, password } = this.state
     return (
