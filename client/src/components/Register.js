@@ -22,13 +22,13 @@ class Register extends React.Component{
   }
 
   render() {
-    const { email, nickname, password } = this.state
+    const { email, nickname, password, passwordConfirmation } = this.state
     return (
       <Segment basic>
         <Header as='h1' textAlign='center'>Register</Header>
         <Form>
           <Form.Input 
-            label='email'
+            label='Email'
             name='email'
             value={email}
             placeholder='Email'
@@ -36,18 +36,25 @@ class Register extends React.Component{
             onChange={this.handleChange}
           />
           <Form.Input 
-            label='nickname'
+            label='User Name'
             name='nickname'
             value={nickname}
-            placeholder='nickname'
+            placeholder='User Name'
+            onChange={this.handleChange}
+          />
+          <Form.Input 
+            label='Password'
+            name='password'
+            value={password}
+            placeholder='Password'
             required
             onChange={this.handleChange}
           />
           <Form.Input 
-            label='password'
-            name='password'
-            value={password}
-            placeholder='password'
+            label='Password Confirmation'
+            name='passwordConfirmation'
+            value={passwordConfirmation}
+            placeholder='Password Confirmation'
             required
             onChange={this.handleChange}
           />
