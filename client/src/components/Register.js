@@ -6,6 +6,7 @@ class Register extends React.Component{
   state = { email: '', nickname: '', password: '', passwordConfirmation: ''}
 
   handleSubmit = (e) => {
+    debugger
     e.preventDefault()
     const { email, nickname, password, passwordConfirmation } = this.state
     const { auth: { handleRegister }, history } = this.props
@@ -26,7 +27,7 @@ class Register extends React.Component{
     return (
       <Segment basic>
         <Header as='h1' textAlign='center'>Register</Header>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Input 
             label='Email'
             name='email'

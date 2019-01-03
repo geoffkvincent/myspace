@@ -21,7 +21,7 @@ class Login extends React.Component {
     return (
       <Segment basic>
         <Header as='h1' textAlign='center'>Login</Header>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Input 
             label="Email"
             required
