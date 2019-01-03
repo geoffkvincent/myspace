@@ -6,14 +6,14 @@ import { Link, withRouter } from 'react-router-dom'
 class Navbar extends React.Component {
   
   rightNavItems = () => {
-    const { auth: { user, handleLogout }, location } = this.props
+    const { auth: { user, handleLogout }, location: { pathname }, history } = this.props
 
     if (user) {
       return (
         <Menu.Menu position='right'>
           <Menu.Item 
             name='logout'
-            onClick={ () => handleLogout(this.props.history) }
+            onClick={ () => handleLogout(history) }
           />
         </Menu.Menu>
       )
@@ -24,14 +24,14 @@ class Navbar extends React.Component {
             <Menu.Item 
               id='login'
               name='login'
-              active={location.pathname === '/login'}
+              active={pathname === '/login'}
             />
           </Link>
           <Link to='register'>
             <Menu.Item 
               id='register'
               name='register'
-              active={location.pathname === '/register'}
+              active={pathname === '/register'}
             />
           </Link>
         </Menu.Menu>

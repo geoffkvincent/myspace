@@ -6,7 +6,6 @@ class Register extends React.Component{
   state = { email: '', nickname: '', password: '', passwordConfirmation: ''}
 
   handleSubmit = (e) => {
-    debugger
     e.preventDefault()
     const { email, nickname, password, passwordConfirmation } = this.state
     const { auth: { handleRegister }, history } = this.props
