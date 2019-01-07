@@ -3,7 +3,7 @@ import { Header, } from 'semantic-ui-react';
 import { AuthConsumer } from '../providers/AuthProvider'
 
 const Home = ({auth}) => (
-    <Header as="h3" textAlign="center"></Header>
+    <Header as="h3" textAlign="center">{auth.user.nickname}</Header>
 )
 
 export default class ConnectedHome extends React.Component {
