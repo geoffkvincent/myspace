@@ -2,8 +2,8 @@ import React from 'react';
 import { Header, } from 'semantic-ui-react';
 import { AuthConsumer } from '../providers/AuthProvider'
 
-const Home = () => (
-    <Header as="h3" textAlign="center">Devise Auth App</Header>
+const Home = ({auth}) => (
+    <Header as="h3" textAlign="center"></Header>
 )
 
 export default class ConnectedHome extends React.Component {
