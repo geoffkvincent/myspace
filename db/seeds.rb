@@ -7,3 +7,13 @@ user_arr = [
   {email: "test@test5.com", password: "password", nickname: "test5"} 
 ]
 
+user_arr.each do |user|
+  u = User.create(
+    email: user.email,
+    nickname: user.nickname,
+    passwor: user.password
+  )
+  10.times do
+    u.
+  end
+end
