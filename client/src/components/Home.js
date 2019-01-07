@@ -6,12 +6,14 @@ const Home = () => (
     <Header as="h3" textAlign="center">Devise Auth App</Header>
 )
 
-const ConnectedHome = () => (
-  <AuthConsumer>
-    { auth =>
-      <Home {...this.props} auth={auth}/>
-    }
-  </AuthConsumer>
-)
-
-export default ConnectedHome;
+export default class ConnectedHome extends React.Component {
+  render() {
+    return (
+      <AuthConsumer>
+        {auth => 
+          <Home {...this.props} auth={auth}/>
+        }
+      </AuthConsumer>
+    )
+  }
+}
