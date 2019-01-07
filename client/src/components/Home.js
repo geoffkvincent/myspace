@@ -4,8 +4,18 @@ import { AuthConsumer } from '../providers/AuthProvider'
 
 const Home = ({auth}) => (
   <AuthConsumer>
+    {auth =>
     <Header as="h3" textAlign="center">Devise Auth App</Header>
+    }
   </AuthConsumer>
 )
 
-export default Home;
+const ConnectedHome = () => (
+  <AuthConsumer>
+    { auth =>
+      <Home {...this.props} auth={auth}/>
+    }
+  </AuthConsumer>
+)
+
+export default ConnectedHome;
