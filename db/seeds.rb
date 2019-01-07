@@ -8,17 +8,12 @@ user_arr = [
 ]
 
 user_arr.each do |user|
-  u = User.create(
-    email: user.email,
-    nickname: user.nickname,
-    passwor: user.password
+  User.create(
+    email: user[:email],
+    nickname: user[:nickname],
+    password: user[:password]
   )
-  10.times do
-    u.posts.create (
-      title: Faker::TwinPeaks.quote,
-      body: Faker::Hipster.paragraph
-    )
-  end
+  
 end
 
 puts "seeded"
