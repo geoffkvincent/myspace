@@ -14,6 +14,11 @@ user_arr.each do |user|
     passwor: user.password
   )
   10.times do
-    u.
+    u.posts.create (
+      title: Faker::TwinPeaks.quote,
+      body: Faker::Hipster.paragraph
+    )
   end
 end
+
+puts "seeded"
