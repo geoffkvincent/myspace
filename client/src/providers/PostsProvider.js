@@ -5,5 +5,24 @@ const PostsContext = React.createContext()
 export const PostsConsumer = PostsContext.Consumer
 
 export class PostsProvider extends React.Component {
-  
+  state = { posts: [] }
+
+  getPosts = () => {
+    debugger
+    axios.get("api/posts")
+      .then( res => this.setState({ posts: res.data }))
+      debugger
+      // .catch(res => console.log(res))
+  }
+
+  render() {
+    return(
+      <PostsContext.Provider value = {{
+        ...this.state,
+        getPosts: this.getPosts,
+      }}>
+        {this.props.children}
+      </PostsContext.Provider>
+    )
+  }
 }
