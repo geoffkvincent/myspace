@@ -17,6 +17,7 @@ gem 'devise_token_auth'
 group :development, :test do
   gem 'faker'
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do
