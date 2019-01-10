@@ -8,11 +8,9 @@ export class PostsProvider extends React.Component {
   state = { posts: [] }
 
   getPosts = () => {
-    debugger
     axios.get("api/posts")
       .then( res => this.setState({ posts: res.data }))
-      debugger
-      // .catch(res => console.log(res))
+      .catch(res => console.log(res))
   }
 
   render() {

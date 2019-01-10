@@ -8,8 +8,13 @@ class Posts extends React.Component{
   }
 
   render() {
+    const {posts: {posts}} = this.props
     return(
-      null
+      <div>
+        {posts.map(post =>
+        
+        )}
+      </div>
     )
   }
 }
