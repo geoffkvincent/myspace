@@ -1,5 +1,6 @@
 import React from 'react'
 import {PostsConsumer} from '../providers/PostsProvider'
+import { Card } from 'semantic-ui-react'
 
 class Posts extends React.Component{
 
