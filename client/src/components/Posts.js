@@ -11,13 +11,16 @@ class Posts extends React.Component{
   render() {
     const {posts: {posts}} = this.props
     return(
-      <div>
-        <ul>
-          {posts.map(post =>
-            <li key={post.id}>{post.title}</li>
-          )}
-        </ul>
-      </div>
+      <Card.Group itemsPerRow={3}>
+        {posts.map(post =>
+        <Card key={post.id}>
+          <Card.Content>
+          <Card.Header>{post.title}</Card.Header>
+          <p>{post.created_at}</p>
+          </Card.Content>
+        </Card>
+          )}  
+      </Card.Group>
     )
   }
 }
