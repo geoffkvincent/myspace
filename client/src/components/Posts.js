@@ -11,9 +11,11 @@ class Posts extends React.Component{
     const {posts: {posts}} = this.props
     return(
       <div>
-        {posts.map(post =>
-        
-        )}
+        <ul>
+          {posts.map(post =>
+            <li key={post.id}>{post.title}</li>
+          )}
+        </ul>
       </div>
     )
   }
