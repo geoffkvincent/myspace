@@ -1,15 +1,15 @@
-import react from 'React'
+import React from 'React'
 import {AuthConsumer} from '../providers/AuthProvider'
 
 class Users extends React.Component{
 
   componentDidMount(){
-
+    this.props.auth.getUsers()
   }
 
   render(){
     return(
-  
+      null
     )
   }
 }
@@ -19,7 +19,7 @@ export default class ConnectedUsers extends React.Component{
     return (
       <AuthConsumer>
         {auth =>
-          <Users { ...this.props } auth={auth}/>
+          <Users {...this.props} auth={auth} />
         }
       </AuthConsumer>
     )
