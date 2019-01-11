@@ -3,10 +3,13 @@ import {AuthConsumer} from '../providers/AuthProvider'
 
 class Users extends React.Component{
 
-  
+  componentDidMount(){
+
+  }
+
   render(){
     return(
-      
+  
     )
   }
 }
