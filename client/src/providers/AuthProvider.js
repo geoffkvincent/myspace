@@ -8,7 +8,8 @@ export class AuthProvider extends React.Component {
   state = { user: null, users: []}
 
   getUsers = () => {
-    axios.get
+    axios.get('api/user')
+      .then(res => this.setState({ users: res.data }))
   }
 
   handleRegister = (user, history) => {
