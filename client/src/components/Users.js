@@ -16,7 +16,7 @@ class Users extends React.Component{
 
 export default class ConnectedUsers extends React.Component{
   render() {
-    return (
+    return(
       <AuthConsumer>
         {auth =>
           <Users {...this.props} auth={auth} />
