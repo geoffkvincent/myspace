@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
 
 class Users extends React.Component{
