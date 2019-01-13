@@ -1,5 +1,6 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
+import { Card }
 
 class Users extends React.Component{
 
