@@ -9,6 +9,7 @@ class Users extends React.Component{
   }
 
   render(){
+    const {} = this.props
     return(
       <Card.Group itemsPerRow={3}>
         {posts.map(post =>
