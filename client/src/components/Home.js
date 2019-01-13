@@ -11,7 +11,7 @@ class Home extends React.Component{
         <Header as="h1" textAlign="center">
           Welcome {nickname}
         </Header>
-        <Posts />
+        <Posts currentUserId={id}/>
       </>
     )
   }
