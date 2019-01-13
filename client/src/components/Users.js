@@ -9,7 +9,7 @@ class Users extends React.Component{
   }
 
   render(){
-    const {} = this.props
+    const { auth:{ users }} = this.props
     return(
       <Card.Group itemsPerRow={3}>
         {posts.map(post =>
