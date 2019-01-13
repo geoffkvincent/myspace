@@ -1,6 +1,6 @@
 import React from 'react'
 import {PostsConsumer} from '../providers/PostsProvider'
-import { Card } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 
 class Posts extends React.Component{
 
@@ -17,6 +17,10 @@ class Posts extends React.Component{
           <Card.Content>
           <Card.Header>{post.title}</Card.Header>
           <p>{post.created_at}</p>
+          </Card.Content>
+          <Card.Content extra>
+            <Icon fitted name='trash'/>
+            <Icon fitted name='trash'/>
           </Card.Content>
         </Card>
           )}  
