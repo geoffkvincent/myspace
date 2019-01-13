@@ -4,6 +4,10 @@ class Api::UsersController < ApplicationController
   def index
     render json: User.all
   end
+
+  def show
+    render json: @user
+  end
   
   def update
     user = User.find(params[:id])
@@ -27,6 +31,12 @@ class Api::UsersController < ApplicationController
     else
       render json: { errors: user.errors.full_messages }, status: 422
     end
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

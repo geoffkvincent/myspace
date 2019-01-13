@@ -1,8 +1,16 @@
 class Api::PostsController < ApplicationController
+  before_action :set_user, only: [:user_post_index]
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    render json: current_user.posts.all
+    if current_user
+      render json: current_user.posts.all
+    elsif != current_user
+    render json: @user.posts.all
+
+    else
+      render json: error, status: 422
+    end
   end
 
   def show
@@ -34,7 +42,11 @@ class Api::PostsController < ApplicationController
   private
 
   def set_post
-    @post = current_user.post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   def post_params
