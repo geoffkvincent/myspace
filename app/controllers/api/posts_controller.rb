@@ -3,14 +3,8 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    if User != current_user
       render json: @user.posts.all
-    elsif current_user
-      render json: current_user.posts.all
       
-    else
-      render json: error, status: 422
-    end
   end
 
   def show
