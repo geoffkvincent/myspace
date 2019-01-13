@@ -7,8 +7,9 @@ export const PostsConsumer = PostsContext.Consumer
 export class PostsProvider extends React.Component {
   state = { posts: [] }
 
-  getPosts = () => {
-    axios.get("api/posts")
+  getPosts = (id) => {
+    debugger
+    axios.get(`/api/users/${id}/posts`)
       .then( res => this.setState({ posts: res.data }))
       .catch(res => console.log(res))
   }

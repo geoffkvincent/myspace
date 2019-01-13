@@ -5,7 +5,7 @@ import { Card } from 'semantic-ui-react'
 class Posts extends React.Component{
 
   componentDidMount() { 
-    this.props.posts.getPosts()
+    this.props.posts.getPosts(this.props.currentUserId)
   }
 
   render() {
