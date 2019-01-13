@@ -16,7 +16,7 @@ class Users extends React.Component{
         {users.map(user =>
         <Card key={user.id}>
           <Card.Content>
-            <Link>
+            <Link >
               <Card.Header>{user.nickname}</Card.Header>
             </Link>
           <Card.Meta>{user.email}</Card.Meta>
