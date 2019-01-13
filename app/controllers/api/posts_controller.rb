@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
-    render json: current_user.posts
+    render json: current_user.posts.all
   end
 
   def show
