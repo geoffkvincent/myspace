@@ -19,7 +19,7 @@ class Users extends React.Component{
           <Card.Meta>{user.email}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
-          <p>{user.created_at}</p>
+            <p>{user.created_at}</p>
           </Card.Content>
         </Card>
           )}  
