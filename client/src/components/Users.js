@@ -16,6 +16,7 @@ class Users extends React.Component{
         <Card key={user.id}>
           <Card.Content>
           <Card.Header>{user.nickname}</Card.Header>
+          <Card.Meta>{user.email}</Card.Meta>
           <p>{user.created_at}</p>
           </Card.Content>
         </Card>
