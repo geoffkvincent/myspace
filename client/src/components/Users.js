@@ -16,7 +16,10 @@ class Users extends React.Component{
         {users.map(user =>
         <Card key={user.id}>
           <Card.Content>
-            <Link to={{ pathname: '/users/posts', state: {userId: user.id}}}>
+            <Link to={{ 
+              pathname: '/users/posts', 
+              state: {userId: user.id, userName: user.nickname}
+            }}>
               <Card.Header>{user.nickname}</Card.Header>
             </Link>
           <Card.Meta>{user.email}</Card.Meta>
