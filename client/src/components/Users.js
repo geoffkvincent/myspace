@@ -12,7 +12,7 @@ class Users extends React.Component{
     const { auth:{ users }} = this.props
     return(
       <Card.Group itemsPerRow={3}>
-        {posts.map(post =>
+        {users.map(user =>
         <Card key={post.id}>
           <Card.Content>
           <Card.Header>{post.title}</Card.Header>
