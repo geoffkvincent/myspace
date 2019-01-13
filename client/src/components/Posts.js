@@ -20,7 +20,7 @@ class Posts extends React.Component{
           </Card.Content>
           <Card.Content extra>
             <Icon fitted name='trash'/>
-            <Icon fitted name='edit'/>
+            <Icon  name='edit'/>
           </Card.Content>
         </Card>
           )}  
