@@ -13,10 +13,10 @@ class Users extends React.Component{
     return(
       <Card.Group itemsPerRow={3}>
         {users.map(user =>
-        <Card key={post.id}>
+        <Card key={user.id}>
           <Card.Content>
-          <Card.Header>{post.title}</Card.Header>
-          <p>{post.created_at}</p>
+          <Card.Header>{user.title}</Card.Header>
+          <p>{user.created_at}</p>
           </Card.Content>
         </Card>
           )}  
