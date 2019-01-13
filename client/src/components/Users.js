@@ -1,6 +1,6 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
-import { Card }
+import { Card } from 'semantic-ui-react'
 
 class Users extends React.Component{
 
