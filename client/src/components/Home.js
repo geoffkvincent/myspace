@@ -3,9 +3,19 @@ import { Header, } from 'semantic-ui-react';
 import { AuthConsumer } from '../providers/AuthProvider'
 import Posts from './Posts'
 
-const Home = ({auth}) => (
-    <Header as="h1" textAlign="center">Welcome {auth.user.nickname}</Header>
-)
+class Home extends React.Component{
+  render() {
+    const { user: { nickname, id } } = this.props.auth
+    return(
+      <>
+        <Header as="h1" textAlign="center">
+          Welcome {nickname}
+        </Header>
+        <Posts />
+      </>
+    )
+  }
+}
 
 export default class ConnectedHome extends React.Component {
   render() {
@@ -16,7 +26,6 @@ export default class ConnectedHome extends React.Component {
             <Home {...this.props} auth={auth}/>
           }
         </AuthConsumer>
-        <Posts/>
       </div>
     )
   }
