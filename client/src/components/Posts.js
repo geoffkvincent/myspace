@@ -18,7 +18,7 @@ class Posts extends React.Component{
           <Card.Header>{post.title}</Card.Header>
           <p>{post.created_at}</p>
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon name='trash'/>
             <Icon name='edit'/>
           </Card.Content>
