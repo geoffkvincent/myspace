@@ -13,11 +13,24 @@ export class PostsProvider extends React.Component {
       .catch(res => console.log(res))
   }
 
+  deletePost = (post) => {
+    axios.delete(`/api/users/${post.userId}/posts/${post.id}`)
+      .then( res => {
+        const posts = this.state.posts.filter( p => {
+          if(p.id !== post.id)
+            return p
+              return null
+        })
+        this.setState({ posts })
+      })
+  }
+
   render() {
     return(
       <PostsContext.Provider value = {{
         ...this.state,
         getPosts: this.getPosts,
+        deletePost: this.deletePost
       }}>
         {this.props.children}
       </PostsContext.Provider>

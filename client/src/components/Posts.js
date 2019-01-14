@@ -19,7 +19,7 @@ class Posts extends React.Component{
           <p>{post.created_at}</p>
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
-            <Icon name='trash'/>
+            <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
             <Icon name='edit'/>
           </Card.Content>
         </Card>
