@@ -22,14 +22,18 @@ class PostForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const {title, body} = this.state
-    const { post: { addPost }, toggle, userId, postId } = this.props
+    const { post: { addPost, updatePost }, toggle, userId, postId } = this.props
     if (postId) {
       let post = { title, body, userId, postId }
+      updatePost(post)
+      this.setState({ title: '', body: '' })
+      toggle()
+    } else {
+      const post = { title, body, userId }
+      addPost(post)
+      this.setState({ title: '', body: '' })
+      toggle()
     }
-    const post = { title, body, userId }
-    addPost(post)
-    this.setState({ title: '', body: '' })
-    toggle()
   }
 
   render() {
