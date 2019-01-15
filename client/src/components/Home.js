@@ -15,19 +15,22 @@ class Home extends React.Component {
     if (showForm)
       return (
         <PostForm 
-          
+          toggle={this.toggleForm}
         />
       )
   }
 
   render() {
     const { user: { nickname, id } } = this.props.auth
+    const {showForm} = this.state
     return(
       <>
         <Header as="h1" textAlign="center">
           Welcome {nickname}
         </Header>
-        <Button onClick={this.toggleForm}>Create Post</Button>
+        <Button onClick={this.toggleForm}>
+          {showForm ? 'Cancel' : 'Create'}
+        </Button>
         { this.renderForm() }
         <Posts currentUserId={id}/>
       </>
