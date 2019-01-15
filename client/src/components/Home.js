@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, } from 'semantic-ui-react';
 import { AuthConsumer } from '../providers/AuthProvider'
 import Posts from './Posts'
+import { Button } from 'semantic-ui-react'
 
 class Home extends React.Component{
   render() {
@@ -11,6 +12,7 @@ class Home extends React.Component{
         <Header as="h1" textAlign="center">
           Welcome {nickname}
         </Header>
+        <Button>Create Post</Button>
         <Posts currentUserId={id}/>
       </>
     )

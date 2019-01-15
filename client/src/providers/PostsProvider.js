@@ -13,6 +13,10 @@ export class PostsProvider extends React.Component {
       .catch(res => console.log(res))
   }
 
+  addPost = (post) => {
+    
+  }
+
   deletePost = (post) => {
     axios.delete(`/api/users/${post.userId}/posts/${post.id}`)
       .then( res => {
@@ -30,6 +34,7 @@ export class PostsProvider extends React.Component {
       <PostsContext.Provider value = {{
         ...this.state,
         getPosts: this.getPosts,
+        addPost: this.addPost,
         deletePost: this.deletePost
       }}>
         {this.props.children}
