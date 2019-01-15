@@ -4,7 +4,11 @@ import { AuthConsumer } from '../providers/AuthProvider'
 import Posts from './Posts'
 import { Button } from 'semantic-ui-react'
 
-class Home extends React.Component{
+class Home extends React.Component {
+  state = {showForm: false}
+
+  toggleForm = () => this.setState({ showForm: !this.state.showForm})
+
   render() {
     const { user: { nickname, id } } = this.props.auth
     return(
@@ -12,7 +16,7 @@ class Home extends React.Component{
         <Header as="h1" textAlign="center">
           Welcome {nickname}
         </Header>
-        <Button>Create Post</Button>
+        <Button onClick={this.toggleForm}>Create Post</Button>
         <Posts currentUserId={id}/>
       </>
     )
