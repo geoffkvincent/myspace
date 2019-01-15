@@ -1,9 +1,18 @@
 import React from 'react'
+import axios from 'axios'
 import {PostsConsumer} from '../providers/PostsProvider'
 import {Form} from 'semantic-ui-react'
 
 class PostForm extends React.Component {
   state = { title: '', body: '' }
+
+  componentDidMount() {
+    const { userId, postId } = this.props
+    if (postId) {
+      axios.get(`/api/users/${userId}/posts/${postId}`)
+        .then( res => this.setState({ ...res.data}))
+    }
+  }
 
   handleChange = (e) => {
     const { name, value } = e.target

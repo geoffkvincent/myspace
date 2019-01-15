@@ -19,6 +19,10 @@ export class PostsProvider extends React.Component {
       .catch( res => console.log(res))
   }
 
+  updatePost = (post) => {
+
+  }
+
   deletePost = (post) => {
     axios.delete(`/api/users/${post.userId}/posts/${post.id}`)
       .then( res => {
@@ -37,6 +41,7 @@ export class PostsProvider extends React.Component {
         ...this.state,
         getPosts: this.getPosts,
         addPost: this.addPost,
+        updatePost: this.updatePost,
         deletePost: this.deletePost
       }}>
         {this.props.children}

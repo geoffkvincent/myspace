@@ -9,7 +9,7 @@ class Posts extends React.Component{
   }
 
   render() {
-    const {posts: {posts}} = this.props
+    const {posts: {posts}, toggleForm } = this.props
     return(
       <Card.Group itemsPerRow={3}>
         {posts.map(post =>
@@ -20,7 +20,7 @@ class Posts extends React.Component{
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
-            <Icon name='edit'/>
+            <Icon onClick={() => toggleForm(post.id)} name='edit'/>
           </Card.Content>
         </Card>
           )}  
