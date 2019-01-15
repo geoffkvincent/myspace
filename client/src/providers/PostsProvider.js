@@ -23,9 +23,9 @@ export class PostsProvider extends React.Component {
     axios.put(`/api/users/${post.userId}/posts/${post.postId}`, {post})
       .then( ({data}) => {
         const posts = this.state.posts.map( p => {
-          if (p.id !== post.postId)
-            return p
-             return null
+          if (p.id === post.postId)
+            return data
+             return p
         })
         this.setState({ posts })
       })
