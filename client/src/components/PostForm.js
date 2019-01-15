@@ -5,22 +5,41 @@ import {Form} from 'semantic-ui-react'
 class PostForm extends React.Component {
   state = { title: '', body: '' }
 
-  handleChange = () => {
-
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState({ [name]: value })
   }
 
-  handleSubmit = () => {
-
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const {title, body} = this.state
+    const { post: { addPost }, toggle } = this.props
+    const post = { title, body }
+    addPost(post)
+    this.setState({ title: '', body: '' })
+    toggle()
   }
 
   render() {
+    const { title, body } = this.state
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
-
+          name="title"
+          placeholder="Title"
+          label = "Title"
+          value={title}
+          onChange={this.handleChange}
+        />
+        <Form.TextArea
+          name="body"
+          placeholder="Post"
+          label = "Post"
+          value={body}
+          onChange={this.handleChange}
         />
       <Form.Button>
-        
+        Submit
       </Form.Button>
       </Form>
     )
