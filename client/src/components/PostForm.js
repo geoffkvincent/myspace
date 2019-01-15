@@ -38,6 +38,7 @@ class PostForm extends React.Component {
 
   render() {
     const { title, body } = this.state
+    const { postId } = this.props
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
@@ -55,7 +56,7 @@ class PostForm extends React.Component {
           onChange={this.handleChange}
         />
       <Form.Button>
-        Submit
+        { postId ? 'Edit' : 'Submit' }
       </Form.Button>
       </Form>
     )

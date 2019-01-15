@@ -20,7 +20,8 @@ export class PostsProvider extends React.Component {
   }
 
   updatePost = (post) => {
-
+    axios.put(`/api/users/${post.userId}/posts/${post.postId}`, {post})
+      .then( ({data}) => this.setState({ posts: [data, ...this.state.posts] }) )
   }
 
   deletePost = (post) => {
