@@ -12,9 +12,11 @@ class Home extends React.Component {
 
   renderForm = () => {
     const {showForm} = this.state
+    const { user: { id } } = this.props.auth
     if (showForm)
       return (
         <PostForm 
+          userId={id}
           toggle={this.toggleForm}
         />
       )

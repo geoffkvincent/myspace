@@ -14,7 +14,9 @@ export class PostsProvider extends React.Component {
   }
 
   addPost = (post) => {
-    
+    axios.post(`/api/users/${post.userId}/posts`, {post})
+      .then( ({data}) => this.setState({ posts: [data, ...this.state.posts] }) )
+      .catch( res => console.log(res))
   }
 
   deletePost = (post) => {
