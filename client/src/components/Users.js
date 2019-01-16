@@ -4,12 +4,16 @@ import { Card, Button } from 'semantic-ui-react'
 import { Link, } from 'react-router-dom'
 
 class Users extends React.Component{
+  state = { follow: true }
 
   componentDidMount(){
     this.props.auth.getUsers()
   }
 
+  toggleFollow = () => this.setState({ follow: !this.state.follow})
+
   render(){
+    const { follow } = this.state
     const { auth:{ users }} = this.props
     return(
       <Card.Group itemsPerRow={3}>
@@ -26,7 +30,9 @@ class Users extends React.Component{
           <Card.Meta>Member since: {user.created_at}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <Button size='mini' color='blue' >Follow</Button>
+            <Button onClick={this.toggleFollow} size='mini' color='blue' >
+              { follow ? 'Follow' : 'Unfollow' }
+            </Button>
           </Card.Content>
         </Card>
           )}  
