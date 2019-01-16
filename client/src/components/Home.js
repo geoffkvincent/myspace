@@ -21,6 +21,7 @@ class Home extends React.Component {
           userId={id}
           postId={postId}
           toggle={this.toggleForm}
+          new
         />
       )
   }

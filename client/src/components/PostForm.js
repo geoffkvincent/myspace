@@ -8,7 +8,7 @@ class PostForm extends React.Component {
 
   componentDidMount() {
     const { userId, postId } = this.props
-    if (postId) {
+    if (!this.props.new) {
       axios.get(`/api/users/${userId}/posts/${postId}`)
         .then( res => this.setState({ ...res.data}))
     }
@@ -24,7 +24,7 @@ class PostForm extends React.Component {
     const {title, body} = this.state
     const { post: { addPost, updatePost }, toggle, userId, postId } = this.props
     if (postId) {
-      let post = { title, body, userId, postId }
+      const post = { title, body, userId, postId }
       updatePost(post)
       this.setState({ title: '', body: '' })
       toggle()
