@@ -6,18 +6,18 @@ import PostForm from './PostForm'
 import { Button } from 'semantic-ui-react'
 
 class Home extends React.Component {
-  state = { showForm: false, postId: null }
+  state = { showForm: false, postId: null, editing: false }
 
   toggleForm = () => {
-    this.setState({ showForm: !this.state.showForm})
+    this.setState({ showForm: !this.state.showForm, editing: !this.state.editing})
   }
 
   toggleEdit = (id) => {
-    this.setState({ showForm: !this.state.showForm, postId: id})
+    this.setState({ showForm: !this.state.showForm, postId: id, editing: !this.state.editing})
   }
 
   renderForm = () => {
-    const { showForm, postId } = this.state
+    const { showForm, postId, editing } = this.state
     const { user: { id } } = this.props.auth
     if (showForm)
       return (
@@ -25,22 +25,10 @@ class Home extends React.Component {
           userId={id}
           postId={postId}
           toggle={this.toggleForm}
+          editing={editing}
         />
       )
     }
-
-  // editForm = (id) => {
-  //   const { showForm } = this.state
-  //   this.setState({showForm: !showForm})
-  //   const { user } = this.props.auth
-  //   if (showForm)
-  //   return (
-  //     <PostForm 
-  //       userId={user.id}
-  //       postId={id}
-  //     />
-  //   )
-  // }
 
   render() {
     const { user: { nickname, id } } = this.props.auth
