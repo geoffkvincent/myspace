@@ -1,6 +1,7 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
 import { Card, Button } from 'semantic-ui-react'
+import styled from 'styled-components'
 import { Link, } from 'react-router-dom'
 
 class Users extends React.Component{
@@ -52,4 +53,8 @@ export default class ConnectedUsers extends React.Component{
     )
   }
 }
+
+// const FollowButton = styled.div`
+//   background-color: { follow ? blue : red } !important;
+// `
 
