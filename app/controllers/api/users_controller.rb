@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: User.all
+    render json: User.all_except(current_user)
   end
 
   def show

@@ -11,7 +11,9 @@ class Users extends React.Component{
     this.props.auth.getUsers()
   }
 
-  toggleFollow = () => this.setState({ follow: !this.state.follow})
+  toggleFollow = (id) => {
+    this.setState({ follow: !this.state.follow})
+  }
 
   render(){
     const { follow } = this.state
@@ -31,7 +33,11 @@ class Users extends React.Component{
           <Card.Meta>Member since: {user.created_at}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <Button onClick={this.toggleFollow} size='mini' color='blue' >
+            <Button 
+              onClick={() => this.toggleFollow(user.id)} 
+              size='mini' 
+              color='blue' 
+            >
               { follow ? 'Follow' : 'Unfollow' }
             </Button>
           </Card.Content>

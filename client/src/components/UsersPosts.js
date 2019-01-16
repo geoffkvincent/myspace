@@ -25,8 +25,7 @@ class UsersPosts extends React.Component{
             <p>{post.created_at}</p>
             </Card.Content>
             <Card.Content extra>
-              <Icon name='thumbs up' />
-              <Icon name='thumbs down' />
+              <Icon name='thumbs up'></Icon>
             </Card.Content>
           </Card>
             )}  
