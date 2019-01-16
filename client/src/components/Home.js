@@ -9,7 +9,7 @@ class Home extends React.Component {
   state = { showForm: false, postId: null, editing: false }
 
   toggleForm = () => {
-    this.setState({ showForm: !this.state.showForm, editing: !this.state.editing})
+    this.setState({ showForm: !this.state.showForm, editing: false})
   }
 
   toggleEdit = (id) => {
