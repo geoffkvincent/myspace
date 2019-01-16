@@ -6,24 +6,39 @@ import PostForm from './PostForm'
 import { Button } from 'semantic-ui-react'
 
 class Home extends React.Component {
-  state = { showForm: false, postId: null }
+  state = { showForm: false, toggleEdit: false }
 
-  toggleForm = (id) => {
-    this.setState({ showForm: !this.state.showForm, postId: id })
+  toggleForm = () => {
+    this.setState({ showForm: !this.state.showForm })
   }
 
+  toggleEdit = () =>
+
   renderForm = () => {
-    const { showForm, postId } = this.state
+    const { showForm } = this.state
     const { user: { id } } = this.props.auth
     if (showForm)
       return (
         <PostForm 
           userId={id}
-          postId={postId}
           toggle={this.toggleForm}
-          new
         />
       )
+      if (showForm && toggleEdit)
+      return (
+        <PostForm 
+        />
+      )
+  }
+
+  editForm = (id) => {
+    const { user } = this.props.auth
+    return (
+      <PostForm 
+        userId={user.id}
+        postId={id}
+      />
+    )
   }
 
   render() {
@@ -38,7 +53,7 @@ class Home extends React.Component {
           {showForm ? 'Cancel' : 'Create'}
         </Button>
         { this.renderForm() }
-        <Posts currentUserId={id} toggleForm={this.toggleForm} />
+        <Posts currentUserId={id} toggleForm={this.toggleForm} editForm={this.editForm} />
       </>
     )
   }

@@ -8,7 +8,7 @@ class PostForm extends React.Component {
 
   componentDidMount() {
     const { userId, postId } = this.props
-    if (!this.props.new) {
+    if (postId) {
       axios.get(`/api/users/${userId}/posts/${postId}`)
         .then( res => this.setState({ ...res.data}))
     }
