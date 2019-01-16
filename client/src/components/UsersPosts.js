@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import {Card, Header, Container} from 'semantic-ui-react'
+import {Card, Header, Container, Icon} from 'semantic-ui-react'
 
 class UsersPosts extends React.Component{
   state = { userPosts: [] }
@@ -23,6 +23,10 @@ class UsersPosts extends React.Component{
             <Card.Content>
             <Card.Header>{post.title}</Card.Header>
             <p>{post.created_at}</p>
+            </Card.Content>
+            <Card.Content extra>
+              <Icon name='thumbs up' />
+              <Icon name='thumbs down' />
             </Card.Content>
           </Card>
             )}  

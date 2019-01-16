@@ -1,7 +1,7 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
-import { Card } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Card, Button } from 'semantic-ui-react'
+import { Link, } from 'react-router-dom'
 
 class Users extends React.Component{
 
@@ -23,9 +23,10 @@ class Users extends React.Component{
               <Card.Header>{user.nickname}</Card.Header>
             </Link>
           <Card.Meta>{user.email}</Card.Meta>
+          <Card.Meta>Member since: {user.created_at}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <p>{user.created_at}</p>
+            <Button size='mini' color='blue' >Follow</Button>
           </Card.Content>
         </Card>
           )}  
