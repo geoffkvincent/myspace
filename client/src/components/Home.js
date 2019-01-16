@@ -6,7 +6,7 @@ import PostForm from './PostForm'
 import { Button } from 'semantic-ui-react'
 
 class Home extends React.Component {
-  state = { showForm: false, toggleEdit: false }
+  state = { showForm: false }
 
   toggleForm = () => {
     this.setState({ showForm: !this.state.showForm })
@@ -24,12 +24,8 @@ class Home extends React.Component {
           toggle={this.toggleForm}
         />
       )
-      if (showForm && toggleEdit)
-      return (
-        <PostForm 
-        />
-      )
-  }
+    }
+    
 
   editForm = (id) => {
     const { user } = this.props.auth
