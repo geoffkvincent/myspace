@@ -23,6 +23,7 @@ class Home extends React.Component {
       return (
         <PostForm 
           userId={id}
+          postId={postId}
           toggle={this.toggleForm}
         />
       )
