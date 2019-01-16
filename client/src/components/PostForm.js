@@ -22,8 +22,8 @@ class PostForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const {title, body} = this.state
-    const { post: { addPost, updatePost }, toggle, userId, postId } = this.props
-    if (postId) {
+    const { post: { addPost, updatePost }, toggle, userId, postId, editing } = this.props
+    if (editing) {
       const post = { title, body, userId, postId }
       updatePost(post)
       this.setState({ title: '', body: '' })
@@ -38,7 +38,7 @@ class PostForm extends React.Component {
 
   render() {
     const { title, body } = this.state
-    const { postId } = this.props
+    const { editing } = this.props
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
@@ -56,7 +56,7 @@ class PostForm extends React.Component {
           onChange={this.handleChange}
         />
       <Form.Button>
-        { postId ? 'Edit' : 'Submit' }
+        { editing ? 'Edit' : 'Submit' }
       </Form.Button>
       </Form>
     )
