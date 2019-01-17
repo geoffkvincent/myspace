@@ -11,12 +11,10 @@ class Api::UsersController < ApplicationController
   end
   
   def update
-    if current_user.friends << user_params
+    binding.pry
+      current_user.friends << user_params
       current_user.save
       render json: current_user
-    else
-      render json: current_user.error, status: 422
-    end
   end
   
   private
