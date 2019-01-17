@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:update]
+  # before_action :set_user, only: [:update]
 
   def index
     render json: User.all_except(current_user)
@@ -11,13 +11,12 @@ class Api::UsersController < ApplicationController
   end
   
   def update
-    current_user.friends << params[:friends]
-    current_user.save
-    # if @user.update(user_params)
-    #   render json: @user
-    # else
-    #   render json: @user.error, status: 422
-    # end
+    if current_user.friends << user_params
+      current_user.save
+      render json: current_user
+    else
+      render json: current_user.error, status: 422
+    end
   end
   
   private
