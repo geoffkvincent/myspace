@@ -11,11 +11,8 @@ class Api::UsersController < ApplicationController
   end
   
   def update
-    if @user.update(user_params)
-      render json: @user
-    else
-      render json: @user.error, status: 422
-    end
+    current_user.friends << params[:id].to_i
+    current_user.save
   end
   
   private
