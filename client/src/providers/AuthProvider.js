@@ -12,6 +12,10 @@ export class AuthProvider extends React.Component {
       .then(res => this.setState({ users: res.data }))
   }
 
+  addFriend = (user) => {
+    axios.put(``)
+  }
+
   handleRegister = (user, history) => {
     axios.post("/api/auth", user)
       .then ( res => {
@@ -54,6 +58,7 @@ export class AuthProvider extends React.Component {
         handleLogin: this.handleLogin,
         handleLogout: this.handleLogout,
         getUsers: this.getUsers,
+        addFriend: this.addFriend,
         setUser: (user) => this.setState({ user })
       }}>
         { this.props.children }
