@@ -13,7 +13,9 @@ export class AuthProvider extends React.Component {
   }
 
   addFriend = (user) => {
+    debugger
     axios.put(``)
+
   }
 
   handleRegister = (user, history) => {

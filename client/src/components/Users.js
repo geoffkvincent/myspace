@@ -12,10 +12,10 @@ class Users extends React.Component{
   }
 
   toggleFollow = (id) => {
-    const { user } = this.props.auth
+    const { user, addFriend } = this.props.auth
     this.setState({ follow: !this.state.follow})
     const userFollow = {user_id: user.id, friends: id}
-    
+    addFriend(userFollow)
   }
 
   render(){
