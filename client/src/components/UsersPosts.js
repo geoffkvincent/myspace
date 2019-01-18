@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 import {Card, Header, Container, Icon} from 'semantic-ui-react'
 
 class UsersPosts extends React.Component{
@@ -22,7 +23,7 @@ class UsersPosts extends React.Component{
           <Card key={post.id}>
             <Card.Content>
             <Card.Header>{post.title}</Card.Header>
-            <p>{post.created_at}</p>
+            <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
             </Card.Content>
             <Card.Content extra>
               <Icon name='thumbs up'></Icon>

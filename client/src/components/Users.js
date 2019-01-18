@@ -2,6 +2,7 @@ import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
 import { Card, Button } from 'semantic-ui-react'
 import styled from 'styled-components'
+import moment from 'moment'
 import { Link, } from 'react-router-dom'
 
 class Users extends React.Component{
@@ -33,7 +34,7 @@ class Users extends React.Component{
               <Card.Header>{user.nickname}</Card.Header>
             </Link>
           <Card.Meta>{user.email}</Card.Meta>
-          <Card.Meta>Member since: {user.created_at}</Card.Meta>
+          <Card.Meta>Member since: {{moment(user.created_at).format("MMM Do YYYY")}}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <Button 
