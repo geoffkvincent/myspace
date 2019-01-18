@@ -34,7 +34,7 @@ class Users extends React.Component{
               <Card.Header>{user.nickname}</Card.Header>
             </Link>
           <Card.Meta>{user.email}</Card.Meta>
-          <Card.Meta>Member since: {{moment(user.created_at).format("MMM Do YYYY")}}</Card.Meta>
+          <Card.Meta>Member since: {moment(user.created_at).format("MMM Do YYYY")}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <Button 
