@@ -10,14 +10,17 @@ class Posts extends React.Component{
     this.props.posts.getPosts(this.props.currentUserId)
   }
 
-  showPost = (post) => this.setState({ showPost: !this.state.showPost}, () => {
-    this.renderPost(post)
-  })
+  showPost = () => {
+    this.setState({ showPost: !this.state.showPost})
+    
+  }
+  
 
   renderPost = (post) => {
     if (this.state.showPost)
-    return
-    <p>{post.body}</p>
+    return (
+      <p>{post}</p>
+    )
   }
 
   render() {
@@ -27,9 +30,9 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header onClick={() => this.showPost(post.body)}>{post.title}</Card.Header>
+          <Card.Header onClick={() => this.showPost()}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          { renderPost() }
+          { this.state.showPost ? this.renderPost(post.body) : null }
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
