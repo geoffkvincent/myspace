@@ -1,5 +1,6 @@
 import React from 'react'
 import {PostsConsumer} from '../providers/PostsProvider'
+import PostShow from './PostShow'
 import { Card, Icon } from 'semantic-ui-react'
 import moment from 'moment'
 
@@ -10,18 +11,27 @@ class Posts extends React.Component{
     this.props.posts.getPosts(this.props.currentUserId)
   }
 
-  showPost = (post) => {
-    this.setState({ showPost: !this.state.showPost, post: post})
+  showPost = (id) => {
+    const {posts: {posts} } = this.props
+    return (
+      <PostShow posts={posts} postId={id}/>
+    )
     
   }
   
-
-  renderPost = () => {
-    if (this.state.showPost)
-    return (
-      <p>{this.state.post.body}</p>
-    )
-  }
+  // renderPost = () => {
+  //   const {posts: {posts}} = this.props
+  //   debugger
+  //   posts.map(post => {
+  //     if(post.id === this.state.post.id)
+  //      return <p>{this.state.post.body}</p>
+  //      return null
+  //   })
+  // }
+  // if 
+  // return (
+  //   <p>{this.state.post.body}</p>
+  // )
 
   render() {
     const {posts: {posts}, toggleEdit } = this.props
@@ -30,9 +40,9 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header onClick={() => this.showPost(post)}>{post.title}</Card.Header>
+          <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          { this.state.showPost ? this.renderPost() : null }
+          { this.state.showPost ? <PostShow showPost={this.state.post}/> : null }
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
