@@ -4,14 +4,14 @@ import { Card, Icon } from 'semantic-ui-react'
 import moment from 'moment'
 
 class Posts extends React.Component{
-  state = { showPost: false }
+  state = { showPost: false, postId: id }
 
   componentDidMount() { 
     this.props.posts.getPosts(this.props.currentUserId)
   }
 
-  showPost = () => {
-    this.setState({ showPost: !this.state.showPost})
+  showPost = (id) => {
+    this.setState({ showPost: !this.state.showPost, postId: id})
     
   }
   
@@ -30,9 +30,9 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header onClick={() => this.showPost()}>{post.title}</Card.Header>
+          <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          { this.state.showPost ? this.renderPost(post.body) : null }
+          { this.state.showPost ? this.renderPost(post) : null }
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
