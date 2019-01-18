@@ -10,7 +10,14 @@ class Posts extends React.Component{
     this.props.posts.getPosts(this.props.currentUserId)
   }
 
-  showPost = () => this.setState({ showPost: !this.state.showPost})
+  showPost = (post) => this.setState({ showPost: !this.state.showPost}, () => {
+    this.renderPost
+  })
+
+  renderPost = () => {
+    if (this.state.showPost)
+    return
+  }
 
   render() {
     const {posts: {posts}, toggleEdit } = this.props
@@ -19,7 +26,7 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
+          <Card.Header onClick={() => this.showPost(post.body)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
