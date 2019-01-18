@@ -11,9 +11,11 @@ class Api::UsersController < ApplicationController
   end
   
   def update
-      current_user.friends << user_params
-      current_user.save
+    if current_user.update(user_params)
       render json: current_user
+    else
+      render json: current_user.error, status 422
+    end
   end
   
   private
@@ -25,7 +27,6 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:friends)
   end
-  
 end
 
 # user = User.find(params[:id])
