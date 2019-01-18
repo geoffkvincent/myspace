@@ -3,11 +3,13 @@ import {PostsConsumer} from '../providers/PostsProvider'
 import { Card, Icon } from 'semantic-ui-react'
 
 class Posts extends React.Component{
-  state = { togglePost: false }
+  state = { showPost: false }
 
   componentDidMount() { 
     this.props.posts.getPosts(this.props.currentUserId)
   }
+
+  showPost = () => this.setState({ showPost: !this.state.showPost})
 
   render() {
     const {posts: {posts}, toggleEdit } = this.props
