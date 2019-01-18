@@ -11,7 +11,6 @@ class Api::UsersController < ApplicationController
   end
   
   def update
-    binding.pry
       current_user.friends << user_params
       current_user.save
       render json: current_user
