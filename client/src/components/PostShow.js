@@ -4,7 +4,8 @@ import {Card} from 'semantic-ui-react'
 class PostShow extends React.Component {
 
   renderPost = () => {
-    this.props.posts.map(post => {
+    debugger
+    return this.props.posts.map(post => {
       if(this.props.postId === post.id)
         return post.body
           return null
@@ -15,7 +16,7 @@ class PostShow extends React.Component {
     return (
       <Card>
         <Card.Content>
-          <p>{this.renderPost}</p>
+          <p>{this.renderPost()}</p>
         </Card.Content>
       </Card>
     )
