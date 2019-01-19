@@ -17,9 +17,9 @@ class Posts extends React.Component{
     this.renderPost()
   }
 
-  renderPost = () =>  (
-  <PostShow />
-  ) 
+  // renderPost = () =>  (
+  // <PostShow />
+  // ) 
   
   // renderPost = () => {
   //   const {posts: {posts}} = this.props
@@ -44,7 +44,7 @@ class Posts extends React.Component{
           <Card.Content>
           <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          {/* { this.state.showPost ? <PostShow showPost={this.state.post}/> : null } */}
+          { this.state.showPost ? <PostShow showPost={this.state.post}/> : null }
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
