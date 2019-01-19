@@ -12,8 +12,8 @@ class Posts extends React.Component{
   }
 
   showPost = (id) => {
-    debugger
     const {posts: {posts} } = this.props
+    debugger
     return (
       <PostShow posts={posts} postId={id}/>
     )
