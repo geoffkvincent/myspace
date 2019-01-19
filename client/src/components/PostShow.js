@@ -16,7 +16,7 @@ class PostShow extends React.Component {
     return (
       <Card>
         <Card.Content>
-          <p>{this.renderPost()}</p>
+          <p>{this.renderPost}</p>
         </Card.Content>
       </Card>
     )

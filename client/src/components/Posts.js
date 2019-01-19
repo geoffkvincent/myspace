@@ -14,11 +14,11 @@ class Posts extends React.Component{
   showPost = (id) => {
     const {posts: {posts} } = this.props
     debugger
-    return (
-      <PostShow posts={posts} postId={id}/>
-    )
-    
+    this.renderPost()
   }
+
+  renderPost = () =>  <PostShow />
+   
   
   // renderPost = () => {
   //   const {posts: {posts}} = this.props
