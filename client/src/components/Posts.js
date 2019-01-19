@@ -17,8 +17,9 @@ class Posts extends React.Component{
     this.renderPost()
   }
 
-  renderPost = () =>  <PostShow />
-   
+  renderPost = () =>  (
+  <PostShow />
+  ) 
   
   // renderPost = () => {
   //   const {posts: {posts}} = this.props
