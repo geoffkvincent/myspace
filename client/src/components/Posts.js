@@ -1,6 +1,5 @@
 import React from 'react'
 import {PostsConsumer} from '../providers/PostsProvider'
-import PostShow from './PostShow'
 import { Card, Icon } from 'semantic-ui-react'
 import moment from 'moment'
 
@@ -15,12 +14,7 @@ class Posts extends React.Component{
     this.setState({ showPost: !this.state.showPost, post: id})
   }
 
-  // showPost = (id) => {
-  //   const {posts: {posts} } = this.props
-  //   debugger
-  //   this.renderPost()
-  // }
-
+ 
   // renderPost = () =>  (
   // <PostShow />
   // ) 
@@ -48,7 +42,7 @@ class Posts extends React.Component{
           <Card.Content>
           <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          { this.state.showPost ? <PostShow showPost={this.state.post} posts={posts}/> : null }
+          {/* { this.state.showPost ? <PostShow showPost={this.state.post} posts={posts}/> : null } */}
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
