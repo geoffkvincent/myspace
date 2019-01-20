@@ -13,12 +13,9 @@ class Posts extends React.Component{
   showPost = (id) => {
     this.setState({ showPost: !this.state.showPost, post: id})
   }
-
  
   
   
-  
-
   render() {
     const {posts: {posts}, toggleEdit } = this.props
     return(
