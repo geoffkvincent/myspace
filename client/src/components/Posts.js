@@ -17,19 +17,7 @@ class Posts extends React.Component{
  
   
   
-  // renderPost = () => {
-  //   const {posts: {posts}} = this.props
-  //   debugger
-  //   posts.map(post => {
-  //     if(post.id === this.state.post.id)
-  //      return <p>{this.state.post.body}</p>
-  //      return null
-  //   })
-  // }
-  // if 
-  // return (
-  //   <p>{this.state.post.body}</p>
-  // )
+  
 
   render() {
     const {posts: {posts}, toggleEdit } = this.props
