@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     if current_user.update(user_params)
       render json: current_user
     else
-      render json: current_user.error, status 422
+      render json: current_user.error, status: 422
     end
   end
   
