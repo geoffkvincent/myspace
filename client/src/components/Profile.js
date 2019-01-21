@@ -36,7 +36,7 @@ class Profile extends React.Component {
       this.setState({
         editing: false,
         formValues: {
-          ...formValues,
+          ...this.state.formValues,
           file: '',
         }
       })
