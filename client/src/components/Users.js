@@ -28,7 +28,7 @@ class Users extends React.Component{
         <Card key={user.id}>
           <Card.Content>
             <Link to={{ 
-              pathname: '/users/posts', 
+              pathname: `/${user.id}/posts`, 
               state: {userId: user.id, userName: user.nickname}
             }}>
               <Card.Header>{user.nickname}</Card.Header>
