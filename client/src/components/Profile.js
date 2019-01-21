@@ -2,9 +2,12 @@ import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
 import { Card, Header, Container, Image, Form, Button, Grid } from 'semantic-ui-react'
 import moment from 'moment'
+import Dropzone from 'react-dropzone'
+
+const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
 
 class Profile extends React.Component {
-    state = { editing: false, formValues: { name: '', nickname: '', email: ''} }
+    state = { editing: false, formValues: { name: '', nickname: '', email: '', file: '' } }
 
     componentDidMount() {
       const { auth: { user: {name, nickname, email} } } = this.props
@@ -17,11 +20,17 @@ class Profile extends React.Component {
 
     handleChange = (e) => {
       const { name, value } = e.target
-      this.setState({ [name]: value })
+      this.setState({ 
+        formValues: {
+          ...this.state.formValues,
+          [name]: value 
+        }
+      })
     }
 
     handleSubmit = (e) => {
       e.preventDefault()
+
     }
     
     profileView = () => {
@@ -30,7 +39,7 @@ class Profile extends React.Component {
         <>
           <Header as='h1' >Profile</Header>
           <Card centered>
-            <Image></Image>
+            <Image src={ user.image || defaultImage }/>
             <Card.Content>
               <Card.Header>{user.nickname}</Card.Header>
               <Card.Meta>{user.email}</Card.Meta>
@@ -41,11 +50,36 @@ class Profile extends React.Component {
       )
     }
 
+    onDrop = (files) => {
+      this.setState({ formValues: {...this.formValues, file: files[0] } })
+    }
+
     editView = () => {
       const { auth: { user } } = this.props
-      const { formValues: { name, email, nickname } } = this.state
+      const { formValues: { name, email, nickname, file } } = this.state
       return (
         <Form onSubmit={this.handleSubmit}>
+          <Dropzone 
+            onDrop={this.onDrop}
+            multiple={false}
+          >
+            {({getRootProps, getInputProps, isDragActive }) => {
+              return (
+                <div
+                  {...getRootProps()}
+                  style={styles.dropzone}
+                >
+                  <input {...getInputProps()} />
+                  {
+                    isDragActive ?
+                      <p>Drop files here...</p>
+                    :
+                      <p>Try dropping some files here, or click to select files to upload</p>
+                  }
+                </div>
+              )
+            }}
+          </Dropzone>
           <Form.Input
             label="Name"
             name="name"
