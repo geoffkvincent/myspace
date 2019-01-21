@@ -15,6 +15,10 @@ class Navbar extends React.Component {
             name='logout'
             onClick={ () => handleLogout(history) }
           />
+          <Menu.Item 
+            name='Profile'
+            onClick={ () => handleLogout(history) }
+          />
         </Menu.Menu>
       )
     } else {
