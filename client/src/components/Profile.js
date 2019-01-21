@@ -30,7 +30,16 @@ class Profile extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault()
-
+      const { formValues: { name, nickname, email, file } } = this.state
+      const { auth: { user, updateUser } } = this.props
+      updateUser(user.id, { name, nickname, email, file })
+      this.setState({
+        editing: false,
+        formValues: {
+          ...formValues,
+          file: '',
+        }
+      })
     }
     
     profileView = () => {
@@ -134,4 +143,10 @@ export default class ConnectedProfile extends React.Component {
         </AuthConsumer>
       )
     }
+}
+
+const styles = {
+  dropzone: {
+    height: "300px",
+  }
 }
