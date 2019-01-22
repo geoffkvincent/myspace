@@ -12,6 +12,7 @@ class Profile extends React.Component {
     componentDidMount() {
       debugger
       const { auth: { user: {name, nickname, email} } } = this.props
+      debugger
       this.setState({ formValues: { name, nickname, email } })
     }
 
