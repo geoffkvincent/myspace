@@ -24,7 +24,6 @@ export class AuthProvider extends React.Component {
       .then( res => {
         this.setState({ user: res.data }) 
       })
-      return <Redirect to="/profile" />
   }
 
   addFriend = (user) => {
