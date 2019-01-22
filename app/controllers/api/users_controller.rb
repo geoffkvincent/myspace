@@ -34,11 +34,6 @@ class Api::UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: 422
     end
   end
-  # if current_user.update(user_params)
-  #   render json: current_user
-  # else
-  #   render json: current_user.error, status: 422
-  # end
   
   private
   
