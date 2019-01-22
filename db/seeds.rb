@@ -10,6 +10,7 @@ user_arr = [
 user_arr.each do |user|
   u = User.create!(
     email: user[:email],
+    name: Faker::Name.name,
     nickname: user[:nickname],
     password: user[:password]
   )

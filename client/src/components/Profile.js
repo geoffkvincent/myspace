@@ -56,6 +56,7 @@ class Profile extends React.Component {
             <Image src={ user.image || defaultImage }/>
             <Card.Content>
               <Card.Header>{user.nickname}</Card.Header>
+              <Card.Meta>{user.name}</Card.Meta>
               <Card.Meta>{user.email}</Card.Meta>
               <Card.Meta>Member since: {moment(user.created_at).format("MMM Do YYYY")}</Card.Meta>
             </Card.Content>

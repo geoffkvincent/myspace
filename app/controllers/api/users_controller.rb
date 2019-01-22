@@ -11,12 +11,12 @@ class Api::UsersController < ApplicationController
   
   def update
     user = User.find(params[:id])
-    # user.name = params[:name] ? params[:name] : user.name
-    # user.nickname = params[:nickname] ? params[:nickname] : user.nickname
-    # user.email = params[:email] ? params[:email] : user.email
+    user.name = params[:name] ? params[:name] : user.name
+    user.nickname = params[:nickname] ? params[:nickname] : user.nickname
+    user.email = params[:email] ? params[:email] : user.email
     
     file = params[:file]
-    
+
     if file
       begin
         ext = File.extname(file.tempfile)
