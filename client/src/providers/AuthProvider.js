@@ -13,6 +13,7 @@ export class AuthProvider extends React.Component {
   }
 
   updateUser = (id, user) => {
+    debugger
     let data = new FormData()
     data.append('file', user.file)
     axios.put(`/api/users/${id}?name=${user.name}&email=${user.email}&nickname=${user.nickname}`, data)
