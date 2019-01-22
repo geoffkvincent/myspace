@@ -1,6 +1,5 @@
 class Api::UsersController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_user, only: [:update]
 
   def index
     render json: User.all_except(current_user)
