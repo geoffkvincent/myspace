@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Redirect} from 'react-router'
 
 const AuthContext = React.createContext()
 export const AuthConsumer = AuthContext.Consumer
@@ -22,8 +23,8 @@ export class AuthProvider extends React.Component {
     axios.put(`/api/users/${id}`, data)
       .then( res => {
         this.setState({ user: res.data }) 
-        history.push("/profile")
       })
+      return <Redirect to="/profile" />
   }
 
   addFriend = (user) => {
