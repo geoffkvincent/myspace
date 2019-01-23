@@ -19,7 +19,6 @@ class Api::UsersController < ApplicationController
 
     if file != "undefined"
       begin
-        binding.pry
         ext = File.extname(file.tempfile)
         cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
         user.image = cloud_image['secure_url']
