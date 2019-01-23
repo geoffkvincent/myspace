@@ -16,8 +16,10 @@ class Api::UsersController < ApplicationController
     user.email = params[:email] ? params[:email] : user.email
     
     file = params[:file]
+    binding.pry
 
-    if file != "undefined"
+    if file
+      binding.pry
       begin
         ext = File.extname(file.tempfile)
         cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
