@@ -13,7 +13,7 @@ export class AuthProvider extends React.Component {
       .then(res => this.setState({ users: res.data }))
   }
 
-  updateUser = (id, user, history) => {
+  updateUser = (id, user) => {
     debugger
     let data = new FormData()
     data.append('file', user.file)
@@ -24,6 +24,7 @@ export class AuthProvider extends React.Component {
       .then( res => {
         this.setState({ user: res.data }) 
       })
+      debugger
   }
 
   addFriend = (user) => {
