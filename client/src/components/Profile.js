@@ -10,6 +10,7 @@ class Profile extends React.Component {
     state = { editing: false, formValues: { name: '', nickname: '', email: '', file: '' } }
 
     componentDidMount() {
+      debugger
       const { auth: { user: {name, nickname, email} } } = this.props
       this.setState({ formValues: { name, nickname, email } })
     }
@@ -29,10 +30,12 @@ class Profile extends React.Component {
     }
 
     handleSubmit = (e) => {
+      debugger
       e.preventDefault()
       const { formValues: { name, nickname, email, file } } = this.state
       const { auth: { user, updateUser } } = this.props
       updateUser(user.id, { name, nickname, email, file }, this.props.history)
+      debugger
       this.setState({
         editing: false,
         formValues: {

@@ -4,14 +4,14 @@ import { Card, Icon } from 'semantic-ui-react'
 import moment from 'moment'
 
 class Posts extends React.Component{
-  state = { showPost: false, post: {} }
+  state = { showPost: false }
 
   componentDidMount() { 
     this.props.posts.getPosts(this.props.currentUserId)
   }
 
-  showPost = (id) => {
-    this.setState({ showPost: !this.state.showPost, post: id})
+  showPost = () => {
+    this.setState({ showPost: !this.state.showPost})
   }
   
   render() {
