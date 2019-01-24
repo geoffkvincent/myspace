@@ -16,6 +16,7 @@ class Posts extends React.Component{
   
   render() {
     const {posts: {posts}, toggleEdit } = this.props
+    const { showPost } = this.state
     return(
       <Card.Group itemsPerRow={3}>
         {posts.map(post =>
