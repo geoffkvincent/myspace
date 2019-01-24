@@ -6,7 +6,9 @@ class PostShow extends React.Component{
   state = { post: {} }
 
   componentDidMount() {
-
+    const {postId} = this.props
+    axios.get(`/api/users/posts/${postId}`)
+      .then( ({ data }) => this.setState({ post: data }) )
   }
 
   render() {
