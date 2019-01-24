@@ -10,6 +10,7 @@ class PostShow extends React.Component{
   }
 
   render() {
+    const { post } = this.state
     return(
     <Card>
       <Card.Content>
