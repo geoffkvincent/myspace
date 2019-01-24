@@ -5,7 +5,7 @@ import moment from 'moment'
 import PostShow from './PostShow'
 
 class Posts extends React.Component{
-  state = { showPost: false, post: {} }
+  state = { showPost: false }
 
   componentDidMount() { 
     this.props.posts.getPosts(this.props.currentUserId)
@@ -21,15 +21,15 @@ class Posts extends React.Component{
   
   render() {
     const {posts: {posts}, toggleEdit } = this.props
-    const { showPost, post } = this.state
     return(
       <Card.Group itemsPerRow={3}>
         {posts.map(post =>
         <Card key={post.id}>
+          <PostShow post={post}/>
           <Card.Content>
           <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          {/* <p>{ showPost ? <PostShow post={post} /> : null }</p> */}
+          
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
