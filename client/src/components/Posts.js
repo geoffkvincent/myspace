@@ -13,7 +13,7 @@ class Posts extends React.Component{
 
   showPost = (id) => {
     debugger
-    this.setState({ showPost: !this.state.showPost, post: post})
+    this.setState({ showPost: !this.state.showPost})
     return (
       <PostShow postId={id}/>
     )
