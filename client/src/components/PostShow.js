@@ -4,7 +4,7 @@ import {Card} from 'semantic-ui-react'
 const PostShow = ({post}) => (
   <Card>
     <Card.Content>
-      <p>{post.body}</p>
+    <p>{post.body}</p>
     </Card.Content>
   </Card>
 )
