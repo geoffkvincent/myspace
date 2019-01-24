@@ -11,10 +11,11 @@ class Posts extends React.Component{
     this.props.posts.getPosts(this.props.currentUserId)
   }
 
-  showPost = (id) => {
+  showPost = (post) => {
+    debugger
     this.setState({ showPost: !this.state.showPost})
     return (
-      <PostShow />
+      <PostShow post={post}/>
     )
   }
   
@@ -26,7 +27,7 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
+          <Card.Header onClick={() => this.showPost(post)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
           {/* <p>{ showPost ? <PostShow /> : null }</p> */}
           </Card.Content>
