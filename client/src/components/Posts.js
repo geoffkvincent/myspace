@@ -21,8 +21,9 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
+          <Card.Header onClick={this.showPost}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
+          <p>{ showPost ? post.body : null }</p>
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
@@ -35,7 +36,7 @@ class Posts extends React.Component{
   }
 }
 
-export default class ConnectedPosts extends React.Component{
+export default class ConnectedPosts extends React.Component {
   render() {
     return(
       <PostsConsumer>
