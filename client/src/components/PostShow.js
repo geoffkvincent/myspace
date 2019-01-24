@@ -15,11 +15,12 @@ class PostShow extends React.Component{
 
   render() {
     const { post } = this.props
+    const { showPost } = this.state
     return(
     <Card>
       <Card.Content>
       <button onClick={this.toggleShow}>Click</button>
-      <p>{showPost ? post.body}</p>
+      <p>{ showPost ? post.body : "" }</p>
       </Card.Content>
     </Card>
     )

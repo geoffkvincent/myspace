@@ -25,11 +25,10 @@ class Posts extends React.Component{
       <Card.Group itemsPerRow={3}>
         {posts.map(post =>
         <Card key={post.id}>
-          <PostShow post={post}/>
           <Card.Content>
           <Card.Header onClick={() => this.showPost(post.id)}>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          
+          <PostShow post={post}/>
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
             <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
