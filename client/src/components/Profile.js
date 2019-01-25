@@ -5,13 +5,14 @@ import moment from 'moment'
 import Dropzone from 'react-dropzone'
 
 const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
+const file = ''
 
 class Profile extends React.Component {
     state = { editing: false, formValues: { name: '', nickname: '', email: '', file: '' } }
 
     componentDidMount() {
       const { auth: { user: {name, nickname, email} } } = this.props
-      this.setState({ formValues: { name, nickname, email } })
+      this.setState({ formValues: { name, nickname, email, file } })
     }
 
     toggleEdit = () => {
@@ -79,12 +80,11 @@ class Profile extends React.Component {
                   {...getRootProps()}
                   style={styles.dropzone}
                 >
-                  <input {...getInputProps()} name="file" value={file} />
+                  <input {...getInputProps()} />
                   {
                     isDragActive ?
                       <p>Drop files here...</p>
                     :
-                    // <Image src={user.image}/>
                       <p>Try dropping some files here, or click to select files to upload</p>
                   }
                 </div>
