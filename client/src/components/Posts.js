@@ -1,8 +1,9 @@
 import React from 'react'
 import {PostsConsumer} from '../providers/PostsProvider'
-import { Card, Icon, Button } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 import moment from 'moment'
 import PostShow from './PostShow'
+import {Link} from 'react-router-dom'
 
 class Posts extends React.Component{
   state = { showPost: false }
@@ -29,13 +30,13 @@ class Posts extends React.Component{
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
           <PostShow post={post}/>
           </Card.Content>
-          <Card.Content extra style={{display: 'flex'}} >
-            <div style={{justifyContent: 'flex-end'}}>
+          <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
               <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
               <Icon onClick={() => toggleEdit(post.id) } name='edit'/>
-            </div>
-            <div style={{ justifyContent: "flex-start"}}>
-              <p >likes: {}</p>
+            <div style={{ display: 'flex', justifyContent: "flex-start"}}>
+            <Link to={{pathname: "/post", state: { post } }} >
+              <p>likes:{}</p>
+            </Link>
             </div>
           </Card.Content>
         </Card>
