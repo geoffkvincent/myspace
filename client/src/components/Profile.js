@@ -79,13 +79,13 @@ class Profile extends React.Component {
                   {...getRootProps()}
                   style={styles.dropzone}
                 >
-                  <input {...getInputProps()} />
+                  <input {...getInputProps()} name="file" value={file} />
                   {
                     isDragActive ?
                       <p>Drop files here...</p>
                     :
-                    <Image src={user.image}/>
-                      // <p>Try dropping some files here, or click to select files to upload</p>
+                    // <Image src={user.image}/>
+                      <p>Try dropping some files here, or click to select files to upload</p>
                   }
                 </div>
               )
