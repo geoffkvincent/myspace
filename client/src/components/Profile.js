@@ -10,7 +10,6 @@ class Profile extends React.Component {
     state = { editing: false, formValues: { name: '', nickname: '', email: '', file: '' } }
 
     componentDidMount() {
-      debugger
       const { auth: { user: {name, nickname, email} } } = this.props
       this.setState({ formValues: { name, nickname, email } })
     }
@@ -85,7 +84,8 @@ class Profile extends React.Component {
                     isDragActive ?
                       <p>Drop files here...</p>
                     :
-                      <p>Try dropping some files here, or click to select files to upload</p>
+                    <Image src={user.image}/>
+                      // <p>Try dropping some files here, or click to select files to upload</p>
                   }
                 </div>
               )
