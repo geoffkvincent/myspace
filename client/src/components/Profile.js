@@ -8,17 +8,12 @@ const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
 const file = ''
 
 class Profile extends React.Component {
-    state = { editing: false, formValues: { name: '', nickname: '', email: '',}, file: '' }
+    state = { editing: false, formValues: { name: '', nickname: '', email: '', file: '' } }
 
     componentDidMount() {
       const { auth: { user: {name, nickname, email} } } = this.props
-      this.setState({ formValues: { name, nickname, email }, file })
+      this.setState({ formValues: { name, nickname, email, file } })
     }
-
-    // componentDidUpdate() {
-    //   const { auth: { user: {name, nickname, email} } } = this.props
-    //   this.setState({ formValues: { name, nickname, email } })
-    // }
 
     toggleEdit = () => {
       this.setState({ editing: !this.state.editing })
@@ -43,8 +38,8 @@ class Profile extends React.Component {
         editing: false,
         formValues: {
           ...this.state.formValues,
-        },
-        file: '',
+          file: '',
+        }
       })
     }
     
@@ -67,12 +62,12 @@ class Profile extends React.Component {
     }
 
     onDrop = (files) => {
-      this.setState({ formValues: {...this.formValues,  }, file: files[0] })
+      this.setState({ formValues: {...this.state.formValues, file: files[0] } })
     }
 
     editView = () => {
       const { auth: { user } } = this.props
-      const { formValues: { name, email, nickname } } = this.state
+      const { formValues: { name, email, nickname, file } } = this.state
       return (
         <Form onSubmit={this.handleSubmit}>
           <Dropzone 

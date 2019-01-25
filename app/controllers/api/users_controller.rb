@@ -11,9 +11,9 @@ class Api::UsersController < ApplicationController
   
   def update
     user = User.find(params[:id])
-    user.name = params[:name] ? params[:name] : user.name
-    user.nickname = params[:nickname] ? params[:nickname] : user.nickname
-    user.email = params[:email] ? params[:email] : user.email
+    user.name = params[:name] ? params[:name] : current_user.name
+    user.nickname = params[:nickname] ? params[:nickname] : current_user.nickname
+    user.email = params[:email] ? params[:email] : current_user.email
     
     file = params[:file]
 
@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
         render json: { errors: e }, status: 422
       end
     end
-    
+
     if user.save
       render json: user
     else
