@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 class PostShow extends React.Component{
   state = { showPost: false }

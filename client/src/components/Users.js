@@ -1,7 +1,6 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
 import { Card, Button } from 'semantic-ui-react'
-import styled from 'styled-components'
 import moment from 'moment'
 import { Link, } from 'react-router-dom'
 
