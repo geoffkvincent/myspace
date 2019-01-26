@@ -20,24 +20,24 @@ class Users extends React.Component{
 
   render(){
     const { follow } = this.state
-    const { auth:{ users }} = this.props
+    const { auth:{ users, user }} = this.props
     return(
       <Card.Group itemsPerRow={3}>
-        {users.map(user =>
-        <Card key={user.id}>
+        {users.map(u =>
+        <Card key={u.id}>
           <Card.Content>
             <Link to={{ 
-              pathname: `/users/${user.id}/posts`, 
-              state: {userId: user.id, userName: user.nickname}
+              pathname: `/users/${u.id}/posts`, 
+              state: {userId: u.id, userName: u.nickname, user}
             }}>
-              <Card.Header>{user.nickname}</Card.Header>
+              <Card.Header>{u.nickname}</Card.Header>
             </Link>
-          <Card.Meta>{user.email}</Card.Meta>
-          <Card.Meta>Member since: {moment(user.created_at).format("MMM Do YYYY")}</Card.Meta>
+          <Card.Meta>{u.email}</Card.Meta>
+          <Card.Meta>Member since: {moment(u.created_at).format("MMM Do YYYY")}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <Button 
-              onClick={() => this.toggleFollow(user.id)} 
+              onClick={() => this.toggleFollow(u.id)} 
               size='mini' 
               color='blue' 
             >
