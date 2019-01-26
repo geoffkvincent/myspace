@@ -34,7 +34,7 @@ class UsersPosts extends React.Component{
             <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
             </Card.Content>
             <Card.Content extra>
-              <Icon onClick={() => this.addLike(post.id)} name='thumbs up'></Icon>
+              <Icon onClick={() => this.addLikedPost(post.id)} name='thumbs up'></Icon>
             </Card.Content>
           </Card>
             )}  
