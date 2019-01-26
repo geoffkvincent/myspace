@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, update]
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
