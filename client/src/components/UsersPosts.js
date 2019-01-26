@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import { PostsConsumer } from '../providers/PostsProvider'
 import {Card, Header, Container, Icon} from 'semantic-ui-react'
 
 class UsersPosts extends React.Component{
@@ -36,4 +37,14 @@ class UsersPosts extends React.Component{
   }
 }
 
-export default UsersPosts
+export default class ConnectedUsersPosts extends React.Component{
+  render() {
+    return (
+      <PostsConsumer>
+        { posts => 
+          <UsersPosts {...this.props} posts={posts} />
+        }
+      </PostsConsumer>
+    )
+  }
+}

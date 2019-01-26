@@ -19,6 +19,11 @@ export class PostsProvider extends React.Component {
       .catch( res => console.log(res))
   }
 
+  // addLike = (postID, user) => {
+  //   axios.put(`/api/users/${postId}`, {user})
+  //     .then( ({data} => this.setState({ posts:})))
+  // }
+
   updatePost = (post) => {
     axios.put(`/api/users/${post.userId}/posts/${post.postId}`, {post})
       .then( ({data}) => {
