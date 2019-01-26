@@ -13,6 +13,13 @@ class UsersPosts extends React.Component{
       .then(({data}) => this.setState({ userPosts: data }))
   }
 
+  addLike = (postId) => {
+    const { userId } = this.props.location.state
+    const { updatePost } = this.props.posts
+    const post = {postId, userId}
+    updatePost(post)
+  }
+
   render() {
     const {userPosts} = this.state
     const { userName } = this.props.location.state
@@ -27,7 +34,7 @@ class UsersPosts extends React.Component{
             <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
             </Card.Content>
             <Card.Content extra>
-              <Icon name='thumbs up'></Icon>
+              <Icon onClick={() => this.addLike(post.id)} name='thumbs up'></Icon>
             </Card.Content>
           </Card>
             )}  
