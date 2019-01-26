@@ -13,11 +13,11 @@ class UsersPosts extends React.Component{
       .then(({data}) => this.setState({ userPosts: data }))
   }
 
-  addLike = (postId) => {
-    const { userId } = this.props.location.state
-    const { updatePost } = this.props.posts
+  addLikedPost = (postId) => {
+    const { userId, user } = this.props.location.state
+    const { addLike } = this.props.posts
     const post = {postId, userId}
-    updatePost(post)
+    addLike(post, user)
   }
 
   render() {
