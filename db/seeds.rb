@@ -4,7 +4,20 @@ user_arr = [
   {email: "test@test2.com", password: "password", nickname: "test2"},
   {email: "test@test3.com", password: "password", nickname: "test3"},
   {email: "test@test4.com", password: "password", nickname: "test4"},
-  {email: "test@test5.com", password: "password", nickname: "test5"} 
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+  {email: "test@test5.com", password: "password", nickname: "test5"}
+   
 ]
 
 user_arr.each do |user|
@@ -18,7 +31,7 @@ user_arr.each do |user|
     u.posts.create!(
       title: Faker::Dune.character,
       body: Faker::Hipster.paragraph,
-      liked_posts: 
+      liked_posts: user_arr.sample(10)
     )
   end
 end
