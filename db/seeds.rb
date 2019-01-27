@@ -17,7 +17,8 @@ user_arr.each do |user|
   10.times do
     u.posts.create!(
       title: Faker::Dune.character,
-      body: Faker::Hipster.paragraph
+      body: Faker::Hipster.paragraph,
+      liked_posts: 
     )
   end
 end
