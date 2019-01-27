@@ -35,6 +35,7 @@ class UsersPosts extends React.Component{
             </Card.Content>
             <Card.Content extra>
               <Icon onClick={() => this.addLikedPost(post.id)} name='thumbs up'></Icon>
+              <Card.Meta>{post.liked_posts.length}</Card.Meta>
             </Card.Content>
           </Card>
             )}  
