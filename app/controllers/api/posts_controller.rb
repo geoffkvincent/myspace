@@ -23,7 +23,7 @@ class Api::PostsController < ApplicationController
   def add_like
     binding.pry
     user = User.find(params[:user_id])
-    post = user.posts.find(params[:id])
+    post = user.posts.find(params[:post_id])
   end
 
   def update
