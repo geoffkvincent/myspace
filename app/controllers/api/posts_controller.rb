@@ -21,6 +21,7 @@ class Api::PostsController < ApplicationController
   end
 
   def add_like
+    binding.pry
     user = User.find(params[:user_id])
     post = user.posts.find(params[:id])
   end

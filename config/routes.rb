@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :users do
-      resources :posts
-      put 'add_like', to: 'posts#add_like'
+      resources :posts do
+        put 'add_like', to: 'posts#add_like'
+      end
     end
     resources :posts
   end
