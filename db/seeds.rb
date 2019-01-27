@@ -20,7 +20,6 @@ user_arr = [
   {email: "test@test18.com", password: "password", nickname: "test18"}
   {email: "test@test19.com", password: "password", nickname: "test19"}
   {email: "test@test20.com", password: "password", nickname: "test20"}
-
 ]
 
 user_arr.each do |user|
