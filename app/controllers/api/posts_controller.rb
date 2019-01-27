@@ -24,7 +24,11 @@ class Api::PostsController < ApplicationController
     user = User.find(params[:user_id])
     post = user.posts.find(params[:post_id])
     post.liked_posts << params[:user]
-    post.save
+    if post.save
+      render json: post
+    else
+      render json: post.error, status: 422
+    end
   end
 
   def update
