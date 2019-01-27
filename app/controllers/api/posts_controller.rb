@@ -20,9 +20,12 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def add_like
+    user = User.find(params[:user_id])
+    post = user.posts.find(params[:id])
+  end
+
   def update
-    # user = User.find(params[:user_id])
-    # post = user.posts.find(params[:id])
     if @post.update(post_params)
       render json: @post
     else
