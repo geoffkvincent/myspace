@@ -23,9 +23,8 @@ class Api::PostsController < ApplicationController
   def add_like
     user = User.find(params[:user_id])
     post = user.posts.find(params[:post_id])
-    binding.pry
     post.liked_posts << params[:user]
-    
+    post.save
   end
 
   def update
