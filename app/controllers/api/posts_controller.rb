@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :set_user, only: [:index, update]
+  before_action :set_user, only: [:index]
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
@@ -21,6 +21,8 @@ class Api::PostsController < ApplicationController
   end
 
   def update
+    # user = User.find(params[:user_id])
+    # post = user.posts.find(params[:id])
     if @post.update(post_params)
       render json: @post
     else
@@ -43,6 +45,6 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :liked_cats)
+    params.require(:post).permit(:title, :body, :liked_posts)
   end
 end
