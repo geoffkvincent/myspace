@@ -21,7 +21,7 @@ export class PostsProvider extends React.Component {
 
   addLike = (post, user) => {
     debugger
-    axios.put(`/api/users/${post.userId}/posts/${post.postId}`, {user})
+    axios.put(`/api/users/${post.userId}/posts/${post.postId}/add_like`, {user})
       .then( ({data}) => {
         const posts = this.state.posts.map( p => {
           if (p.id === post.postId)
