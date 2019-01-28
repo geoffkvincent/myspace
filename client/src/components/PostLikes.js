@@ -20,7 +20,7 @@ class PostLikes extends React.Component{
               <Header as='h4' image>
                 <Image src={like.image} rounded size='mini' />
                 <Header.Content>
-                  Matthew
+                  
                   <Header.Subheader>Fabric Design</Header.Subheader>
                 </Header.Content>
               </Header>
