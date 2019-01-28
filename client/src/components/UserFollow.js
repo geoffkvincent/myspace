@@ -19,7 +19,7 @@ class UserFollow extends React.Component {
         size='mini' 
         color='blue' 
       >
-        { follow ? 'Follow' : 'Unfollow' }
+        { follow ? 'Unfollow' : 'Follow' }
       </Button>
     )
   }
