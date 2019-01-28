@@ -34,7 +34,7 @@ class Posts extends React.Component{
               <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
               <Icon onClick={() => toggleEdit(post.id) } name='edit'/>
             <div style={{ display: 'flex', justifyContent: "flex-start"}}>
-            <Link to={{pathname: "/post", state: { post } }} >
+            <Link to={{pathname: "/post", state: { posts } }} >
               <p>likes:{post.liked_posts.length}</p>
             </Link>
             </div>
