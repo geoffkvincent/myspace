@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, Header, Image } from 'semantic-ui-react'
-import momnent from 'moment'
+import moment from 'moment'
 
 class PostLikes extends React.Component{
   render() {
@@ -21,8 +21,8 @@ class PostLikes extends React.Component{
               <Header as='h4' image>
                 <Image src={like.image} rounded size='mini' />
                 <Header.Content>
-                  Matthew
-                  <Header.Subheader>Fabric Design</Header.Subheader>
+                  {like.name}
+                  <Header.Subheader>{like.nickname}</Header.Subheader>
                 </Header.Content>
               </Header>
             </Table.Cell>
