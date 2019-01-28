@@ -16,18 +16,20 @@ class PostLikes extends React.Component{
         
         <Table.Body>
           { liked_posts.map(like =>
-          <Table.Row key={like.id}>
-            <Table.Cell>
-              <Header as='h4' image>
-                <Image src={like.image} rounded size='mini' />
-                <Header.Content>
-                  {like.name}
-                  <Header.Subheader>{like.nickname}</Header.Subheader>
-                </Header.Content>
-              </Header>
-            </Table.Cell>
-            <Table.Cell>Liked: {moment(like.created_at).format("MMM Do YYYY")}</Table.Cell>
-          </Table.Row>
+          <div key={like.id}>
+            <Table.Row>
+              <Table.Cell>
+                <Header as='h4' image>
+                  <Image src={like.image} rounded size='mini' />
+                  <Header.Content>
+                    {like.name}
+                    <Header.Subheader>{like.nickname}</Header.Subheader>
+                  </Header.Content>
+                </Header>
+              </Table.Cell>
+              <Table.Cell>Liked: {moment(like.created_at).format("MMM Do YYYY")}</Table.Cell>
+            </Table.Row>
+          </div>
           )}
         </Table.Body>
       </Table>
