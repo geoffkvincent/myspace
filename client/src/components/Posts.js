@@ -35,7 +35,7 @@ class Posts extends React.Component{
               <Icon onClick={() => toggleEdit(post.id) } name='edit'/>
             <div style={{ display: 'flex', justifyContent: "flex-start"}}>
             <Link to={{pathname: "/post", state: { post } }} >
-              <p>likes:{}</p>
+              <p>likes:{post.liked_posts.length}</p>
             </Link>
             </div>
           </Card.Content>
