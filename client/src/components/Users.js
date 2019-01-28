@@ -25,7 +25,7 @@ class Users extends React.Component{
       <Card.Group itemsPerRow={3}>
         {users.map(u =>
         <Card key={u.id}>
-          <Image src={user.image}/>
+          <Image src={u.image}/>
           <Card.Content>
             <Link to={{ 
               pathname: `/users/${u.id}/posts`, 
