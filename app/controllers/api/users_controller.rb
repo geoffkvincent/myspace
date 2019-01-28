@@ -10,6 +10,7 @@ class Api::UsersController < ApplicationController
   end
 
   def add_friend
+    binding.pry
     user = User.find(params[:user_id])
     user.friends << params[:userFollowed]
     if user.save
