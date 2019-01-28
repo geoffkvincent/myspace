@@ -6,7 +6,10 @@ Rails.application.routes.draw do
       resources :posts do
         put 'add_like', to: 'posts#add_like'
       end
+      put 'add_friend', to: 'users#add_friend'
     end
     resources :posts
   end
 end
+
+

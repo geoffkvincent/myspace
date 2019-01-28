@@ -13,9 +13,9 @@ class Api::UsersController < ApplicationController
     user = User.find(params[:user_id])
     user.friends << params[:userFollowed]
     if user.save
-      render json: post
+      render json: user
     else
-      render json: post.error, status: 422
+      render json: user.error, status: 422
     end
   end
   
