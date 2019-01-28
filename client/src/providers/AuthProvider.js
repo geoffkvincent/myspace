@@ -13,7 +13,6 @@ export class AuthProvider extends React.Component {
   }
 
   updateUser = (id, user) => {
-    debugger
     let data = new FormData()
     data.append('file', user.file)
     data.append('name', user.name)
@@ -23,11 +22,9 @@ export class AuthProvider extends React.Component {
       .then( res => {
         this.setState({ user: res.data }) 
       })
-      debugger
   }
 
   addFriend = (user) => {
-    debugger
     axios.put(`/api/users/${user.user_id}`, user.friends)
       .then( ({data}) => {
         const users = this.state.users.map( f => {
@@ -37,7 +34,6 @@ export class AuthProvider extends React.Component {
         })
         this.setState({ users })
       })
-
   }
 
   handleRegister = (user, history) => {
