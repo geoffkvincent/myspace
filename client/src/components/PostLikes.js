@@ -3,6 +3,7 @@ import { Table, Header, Image } from 'semantic-ui-react'
 
 class PostLikes extends React.Component{
   render() {
+    const { liked_posts } = this.props.location.state.post
     return (
       <Table>
         <Table.Header>
@@ -13,10 +14,11 @@ class PostLikes extends React.Component{
         </Table.Header>
         
         <Table.Body>
-          <Table.Row>
+          { liked_posts.map(like =>
+          <Table.Row key={like.id}>
             <Table.Cell>
               <Header as='h4' image>
-                <Image src='https://react.semantic-ui.com/images/avatar/small/matthew.png' rounded size='mini' />
+                <Image src={like.image} rounded size='mini' />
                 <Header.Content>
                   Matthew
                   <Header.Subheader>Fabric Design</Header.Subheader>
@@ -25,6 +27,7 @@ class PostLikes extends React.Component{
             </Table.Cell>
             <Table.Cell>15</Table.Cell>
           </Table.Row>
+          )}
         </Table.Body>
       </Table>
     )
