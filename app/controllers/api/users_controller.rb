@@ -8,6 +8,16 @@ class Api::UsersController < ApplicationController
   def show
     render json: @user
   end
+
+  def add_friend
+    user = User.find(params[:user_id])
+    user.friends << params[:userFollowed]
+    if user.save
+      render json: post
+    else
+      render json: post.error, status: 422
+    end
+  end
   
   def update
     user = User.find(params[:id])
