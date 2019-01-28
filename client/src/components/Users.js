@@ -1,6 +1,6 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import { Link, } from 'react-router-dom'
 
@@ -25,6 +25,7 @@ class Users extends React.Component{
       <Card.Group itemsPerRow={3}>
         {users.map(u =>
         <Card key={u.id}>
+          <Image src={user.image}/>
           <Card.Content>
             <Link to={{ 
               pathname: `/users/${u.id}/posts`, 
