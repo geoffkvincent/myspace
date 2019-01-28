@@ -25,6 +25,7 @@ export class AuthProvider extends React.Component {
   }
 
   addFriend = (user) => {
+    debugger
     axios.put(`/api/users/${user.user_id}`, user.friends)
       .then( ({data}) => {
         const users = this.state.users.map( f => {

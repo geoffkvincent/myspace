@@ -29,7 +29,7 @@ class Users extends React.Component{
           <Card.Meta>Member since: {moment(u.created_at).format("MMM Do YYYY")}</Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <UserFollow auth={ this.props.auth } userId={u.id}/>
+            <UserFollow auth={ this.props.auth } userFollowed={u}/>
             
           </Card.Content>
         </Card>
