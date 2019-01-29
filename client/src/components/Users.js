@@ -6,7 +6,7 @@ import UserFollow from './UserFollow'
 import { Link, } from 'react-router-dom'
 
 class Users extends React.Component{
-  state = { search: '' }
+  state = { search: '', toggleSearch: false }
 
   componentDidMount(){
     this.props.auth.getUsers()
