@@ -21,7 +21,7 @@ class Users extends React.Component{
     const { search, toggleSearch } = this.state
     return(
       <Container>
-        <Header style={{paddingTop: '20px'}}onClick={this.toggleSearch}> Search </Header>
+        <Header style={{paddingTop: '20px', cursor: 'pointer'}}onClick={this.toggleSearch}> Search </Header>
         { toggleSearch ?
           <Form>
             <Form.Input 
