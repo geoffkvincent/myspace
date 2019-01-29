@@ -18,19 +18,22 @@ class Users extends React.Component{
 
   render(){
     const { auth:{ users, user }} = this.props
-    const { search } = this.state
+    const { search, toggleSearch } = this.state
     return(
       <Container>
-        <Header onClick={this.toggleSearch}> Search </Header>
-        <Form>
-          <Form.Input 
-            name="search"
-            placeholder="Search"
-            label = "Search"
-            value={search}
-            onChange={this.updateSearch}
-          />
-        </Form>
+        <Header style={{paddingTop: '20px'}}onClick={this.toggleSearch}> Search </Header>
+        { toggleSearch ?
+          <Form>
+            <Form.Input 
+              name="search"
+              placeholder="Search"
+              value={search}
+              onChange={this.updateSearch}
+            />
+          </Form>
+          :
+          null
+        } 
         <Card.Group itemsPerRow={3}>
           {users.map(u =>
           <Card key={u.id}>
