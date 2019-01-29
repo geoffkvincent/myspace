@@ -1,6 +1,6 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
-import { Card, Container, Image } from 'semantic-ui-react'
+import { Card, Container, Image, Form } from 'semantic-ui-react'
 import moment from 'moment'
 import UserFollow from './UserFollow'
 import { Link, } from 'react-router-dom'
