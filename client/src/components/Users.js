@@ -7,6 +7,7 @@ import { Link, } from 'react-router-dom'
 import UserSearch from './UserSearch'
 
 class Users extends React.Component{
+  state = { search: '' }
 
   componentDidMount(){
     this.props.auth.getUsers()
@@ -14,6 +15,7 @@ class Users extends React.Component{
 
   render(){
     const { auth:{ users, user }} = this.props
+    const { search } = this.state
     return(
       <Container>
         <UserSearch />
