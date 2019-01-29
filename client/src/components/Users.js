@@ -17,6 +17,15 @@ class Users extends React.Component{
     return(
       <Container>
         <UserSearch />
+        <Form>
+          <Form.Input 
+            name="search"
+            placeholder="Search"
+            label = "Search"
+            value={search}
+            onChange={this.handleChange}
+          />
+        </Form>
         <Card.Group itemsPerRow={3}>
           {users.map(u =>
           <Card key={u.id}>
