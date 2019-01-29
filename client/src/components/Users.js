@@ -4,7 +4,6 @@ import { Card, Container, Image, Form } from 'semantic-ui-react'
 import moment from 'moment'
 import UserFollow from './UserFollow'
 import { Link, } from 'react-router-dom'
-import UserSearch from './UserSearch'
 
 class Users extends React.Component{
   state = { search: '' }
@@ -18,7 +17,6 @@ class Users extends React.Component{
     const { search } = this.state
     return(
       <Container>
-        <UserSearch />
         <Form>
           <Form.Input 
             name="search"
