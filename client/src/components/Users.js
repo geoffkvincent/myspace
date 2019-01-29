@@ -25,7 +25,7 @@ class Users extends React.Component{
             placeholder="Search"
             label = "Search"
             value={search}
-            onChange={this.handleChange}
+            onChange={this.updateSearch}
           />
         </Form>
         <Card.Group itemsPerRow={3}>
