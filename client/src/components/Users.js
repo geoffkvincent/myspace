@@ -12,6 +12,8 @@ class Users extends React.Component{
     this.props.auth.getUsers()
   }
 
+  updateSearch = (e) => this.setState({ search: e.target.value })
+
   render(){
     const { auth:{ users, user }} = this.props
     const { search } = this.state
