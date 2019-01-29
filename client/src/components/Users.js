@@ -1,6 +1,6 @@
 import React from 'react'
 import {AuthConsumer} from '../providers/AuthProvider'
-import { Card, Container, Image, Form } from 'semantic-ui-react'
+import { Card, Container, Image, Form, Header } from 'semantic-ui-react'
 import moment from 'moment'
 import UserFollow from './UserFollow'
 import { Link, } from 'react-router-dom'
@@ -12,6 +12,8 @@ class Users extends React.Component{
     this.props.auth.getUsers()
   }
 
+  toggleSearch = () => this.setState({ toggleSearch: !this.state.toggleSearch })
+
   updateSearch = (e) => this.setState({ search: e.target.value })
 
   render(){
@@ -19,6 +21,7 @@ class Users extends React.Component{
     const { search } = this.state
     return(
       <Container>
+        <Header onClick={this.toggleSearch}> Search </Header>
         <Form>
           <Form.Input 
             name="search"
