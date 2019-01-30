@@ -31,11 +31,16 @@ user_arr.each do |user|
     image: user[:image]
   )
   10.times do
-    u.posts.create!(
+    p = u.posts.create!(
       title: Faker::Dune.character,
       body: Faker::Hipster.paragraph,
       liked_posts: user_arr.sample(10)
     )
+    10.times do
+      p.comments.create(
+        text: Faker::Hipster.sentence
+      )
+    end
   end
 end
 
