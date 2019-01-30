@@ -4,6 +4,7 @@ import moment from 'moment'
 import PostShow from './PostShow'
 import { PostsConsumer } from '../providers/PostsProvider'
 import {Card, Header, Container, Icon} from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class UsersPosts extends React.Component{
   state = { userPosts: [] }
@@ -36,8 +37,14 @@ class UsersPosts extends React.Component{
             <PostShow post={post}/>
             </Card.Content>
             <Card.Content extra style={{ display: 'flex', justifyContent: 'flex-start' }}>
-              <Icon onClick={() => this.addLikedPost(post.id)} name='thumbs up'></Icon>
-              <Card.Meta>{post.liked_posts.length}</Card.Meta>
+              <Icon 
+                onClick={() => this.addLikedPost(post.id)} 
+                name='thumbs up' 
+                style={{ cursor: 'pointer'}}
+                />
+              <Link to={{ pathname: '/post', state: { post } }}>
+                <Card.Meta>{post.liked_posts.length}</Card.Meta>
+              </Link>
             </Card.Content>
           </Card>
             )}  
