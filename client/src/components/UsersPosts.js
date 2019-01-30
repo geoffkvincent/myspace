@@ -38,9 +38,9 @@ class UsersPosts extends React.Component{
             </Card.Content>
             <Card.Content extra style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Icon 
+                style={{ cursor: 'pointer'}}
                 onClick={() => this.addLikedPost(post.id)} 
                 name='thumbs up' 
-                style={{ cursor: 'pointer'}}
                 />
               <Link to={{ pathname: '/post', state: { post } }}>
                 <Card.Meta>{post.liked_posts.length}</Card.Meta>
