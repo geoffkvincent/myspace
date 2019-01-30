@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import PostShow from './PostShow'
 import { PostsConsumer } from '../providers/PostsProvider'
 import {Card, Header, Container, Icon} from 'semantic-ui-react'
 
@@ -32,6 +33,7 @@ class UsersPosts extends React.Component{
             <Card.Content>
             <Card.Header>{post.title}</Card.Header>
             <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
+            <PostShow post={post}/>
             </Card.Content>
             <Card.Content extra style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Icon onClick={() => this.addLikedPost(post.id)} name='thumbs up'></Icon>
