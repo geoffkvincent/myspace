@@ -22,7 +22,7 @@ class Posts extends React.Component{
   render() {
     const {posts: {posts}, toggleEdit } = this.props
     return(
-      <Card.Group itemsPerRow={3}>
+      <Card.Group itemsPerRow={1}>
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>

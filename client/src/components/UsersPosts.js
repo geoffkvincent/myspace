@@ -26,14 +26,14 @@ class UsersPosts extends React.Component{
     return(
       <Container>
         <Header as='h1' textAlign='center'>{userName} Posts</Header>
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={1}>
           {userPosts.map(post =>
           <Card key={post.id}>
             <Card.Content>
             <Card.Header>{post.title}</Card.Header>
             <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
             </Card.Content>
-            <Card.Content extra>
+            <Card.Content extra style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Icon onClick={() => this.addLikedPost(post.id)} name='thumbs up'></Icon>
               <Card.Meta>{post.liked_posts.length}</Card.Meta>
             </Card.Content>
