@@ -9,8 +9,13 @@ class Comments extends React.Component {
   }
 
   render() {
+    const { comments } = this.props.posts
     return (
-      <div></div>
+      <ul>
+        {comments.map(c =>
+          <li key={c.id}>{c.text}</li>
+        )}
+      </ul>
     )
   }
 }
