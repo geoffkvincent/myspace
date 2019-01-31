@@ -5,7 +5,7 @@ const PostsContext = React.createContext()
 export const PostsConsumer = PostsContext.Consumer
 
 export class PostsProvider extends React.Component {
-  state = { posts: [] }
+  state = { posts: [], comments: [] }
 
   getPosts = (id) => {
     axios.get(`/api/users/${id}/posts`)
@@ -55,6 +55,12 @@ export class PostsProvider extends React.Component {
       })
   }
 
+  getComments = (userId, postId) => {
+    debugger
+    axios.get(`/api/users/${userId}/posts/${postId}/comments`)
+      .then( ({data}) => this.setState({ comments: data }) )
+  }
+
   render() {
     return(
       <PostsContext.Provider value = {{
@@ -63,7 +69,8 @@ export class PostsProvider extends React.Component {
         addPost: this.addPost,
         updatePost: this.updatePost,
         addLike: this.addLike,
-        deletePost: this.deletePost
+        deletePost: this.deletePost,
+        getComments: this.getComments
       }}>
         {this.props.children}
       </PostsContext.Provider>

@@ -1,7 +1,8 @@
 class Api::CommentsController < ApplicationController
+  before_action :set_post: only: [:index]
 
   def index
-    render json: post.comments.all
+    render json: @post.comments.all
   end
 
   def show
@@ -14,5 +15,11 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 end
