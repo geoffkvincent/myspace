@@ -4,7 +4,8 @@ import { PostsConsumer } from '../providers/PostsProvider'
 class Comments extends React.Component {
 
   componentDidMount(){
-    const { getComments } = this.props
+    const { posts: { getComments }, userId, postId } = this.props
+    getComments(userId, postId)
   }
 
   render() {
