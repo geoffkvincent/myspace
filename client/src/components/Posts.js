@@ -13,7 +13,7 @@ class Posts extends React.Component{
   }
 
   render() {
-    const { posts: {posts}, toggleEdit } = this.props
+    const { posts: {posts}, toggleEdit, currentUserId } = this.props
     return(
       <Card.Group itemsPerRow={1}>
         {posts.map(post =>
@@ -21,7 +21,7 @@ class Posts extends React.Component{
           <Card.Content>
           <Card.Header>{post.title}</Card.Header>
           <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          <PostShow post={post} />
+          <PostShow post={post} userId={currentUserId} />
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
               <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>

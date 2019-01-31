@@ -2,9 +2,14 @@ import React from 'react'
 import { PostsConsumer } from '../providers/PostsProvider'
 
 class Comments extends React.Component {
+
+  componentDidMount(){
+    const { getComments } = this.props
+  }
+
   render() {
     return (
-      null
+      <div></div>
     )
   }
 }

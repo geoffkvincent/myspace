@@ -17,13 +17,13 @@ class PostShow extends React.Component{
   toggleShow = () => this.setState({ showPost: !this.state.showPost })
 
   render() {
-    const { post } = this.props
+    const { post, userId } = this.props
     const { showPost } = this.state
     return(
       <div>
         <Button size='mini' onClick={this.toggleShow}>Show Post</Button>
         <p>{ showPost ? post.body : "" }</p>
-        <p>{ showPost ? <Comments /> : null }</p>
+        <p>{ showPost ? <Comments userId={userId} postId={post.id} /> : null }</p>
       </div>
     )
   }
