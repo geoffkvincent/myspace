@@ -20,7 +20,7 @@ class PostShow extends React.Component{
       <div>
         <Button size='mini' onClick={this.toggleShow}>Show Post</Button>
         <p>{ showPost ? post.body : "" }</p>
-        <p>{ showPost ? this.renderComments : null }</p>
+        <p>{ showPost ? this.renderComments() : null }</p>
       </div>
     )
   }

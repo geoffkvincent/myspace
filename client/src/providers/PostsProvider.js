@@ -56,6 +56,7 @@ export class PostsProvider extends React.Component {
   }
 
   getComments = (userId, postId) => {
+    debugger
     axios.get(`/api/users/${userId}/posts/${postId}/comments`)
       .then( ({data}) => this.setState({ comments: data }) )
   }
