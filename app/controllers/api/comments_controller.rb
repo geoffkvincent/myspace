@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-  before_action :set_post: only: [:index]
+  before_action :set_post, only: [:index]
 
   def index
     render json: @post.comments.all
