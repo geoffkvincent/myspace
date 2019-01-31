@@ -6,10 +6,13 @@ import { Button } from 'semantic-ui-react'
 class PostShow extends React.Component{
   state = { showPost: false }
 
-  renderComments = () => {
-    const {userId, post, getComments} = this.props
-    getComments(userId, post.id)
-  }
+  // renderComments = () => {
+  //   const {userId, post, getComments} = this.props
+  //   getComments(userId, post.id)
+  //   return (
+  //     <Comments />
+  //   )
+  // }
 
   toggleShow = () => this.setState({ showPost: !this.state.showPost })
 
@@ -20,7 +23,7 @@ class PostShow extends React.Component{
       <div>
         <Button size='mini' onClick={this.toggleShow}>Show Post</Button>
         <p>{ showPost ? post.body : "" }</p>
-        <p>{ showPost ? this.renderComments() : null }</p>
+        <p>{ showPost ? <Comments /> : null }</p>
       </div>
     )
   }
