@@ -32,6 +32,7 @@ class UsersPosts extends React.Component{
           {userPosts.map(post =>
           <Card key={post.id}>
             <Card.Content>
+            <Card.Meta>{post.liked_posts.length} Likes</Card.Meta>
             <Card.Header>{post.title}</Card.Header>
             <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
             <PostShow post={post}/>
@@ -43,7 +44,6 @@ class UsersPosts extends React.Component{
                 name='thumbs up' 
                 />
               <Link to={{ pathname: '/post', state: { post } }}>
-                <Card.Meta>{post.liked_posts.length}</Card.Meta>
               </Link>
             </Card.Content>
           </Card>
