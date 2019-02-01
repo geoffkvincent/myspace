@@ -10,7 +10,7 @@ import FetchUser from './components/FetchUser'
 import Profile from './components/Profile'
 import PostLikes from './components/PostLikes'
 import ProtectedRoute from './components/ProtectedRoute'
-import Comments from './components/Comments'
+import PostShow from './components/PostShow'
 import { Switch, Route } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 
@@ -25,7 +25,7 @@ const App = () => (
           <ProtectedRoute exact path='/users/:id/posts' component={UsersPosts} />
           <ProtectedRoute exact path='/profile' component={Profile} />
           <ProtectedRoute exact path='/post' component={PostLikes} />
-          <ProtectedRoute exact path='/comments' component={Comments} />
+          <ProtectedRoute exact path='/comments' component={PostShow} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route component={NoMatch} />
