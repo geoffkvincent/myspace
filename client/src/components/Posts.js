@@ -19,18 +19,22 @@ class Posts extends React.Component{
         {posts.map(post =>
         <Card key={post.id}>
           <Card.Content>
-          <Card.Header>{post.title}</Card.Header>
-          <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-          <PostShow post={post} userId={currentUserId} />
+            <Card.Header>{post.title}</Card.Header>
+            <Card.Meta>posted: {moment(post.created_at).format("MMM Do YYYY")}</Card.Meta>
+            <Link to={{pathname: "/post", state: { post } }} >
+              <Card.Meta>likes:{post.liked_posts.length}</Card.Meta>
+            </Link>
+            <PostShow post={post} userId={currentUserId} />
           </Card.Content>
           <Card.Content extra style={{display: 'flex', justifyContent: 'flex-end' }} >
-              <Icon onClick={() => this.props.posts.deletePost({id: post.id, userId: post.user_id} ) } name='trash'/>
-              <Icon onClick={() => toggleEdit(post.id) } name='edit'/>
-            <div style={{ display: 'flex', justifyContent: "flex-start"}}>
-            <Link to={{pathname: "/post", state: { post } }} >
-              <p>likes:{post.liked_posts.length}</p>
-            </Link>
-            </div>
+            <Icon 
+              onClick={ () => this.props.posts.deletePost({id: post.id, userId: post.user_id} )} 
+              name='trash'
+            />
+            <Icon 
+              onClick={() => toggleEdit(post.id) } 
+              name='edit'
+            />
           </Card.Content>
         </Card>
           )}  
