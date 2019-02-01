@@ -35,6 +35,9 @@ class Posts extends React.Component{
               onClick={() => toggleEdit(post.id) } 
               name='edit'
             />
+            <Link to={}>
+              <Card.Meta>Comments</Card.Meta>
+            </Link>
           </Card.Content>
         </Card>
           )}  
