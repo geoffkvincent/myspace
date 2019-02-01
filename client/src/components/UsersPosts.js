@@ -32,10 +32,12 @@ class UsersPosts extends React.Component{
           {userPosts.map(post =>
           <Card key={post.id}>
             <Card.Content>
-            <Card.Header>{post.title}</Card.Header>
-            <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
-            <Card.Meta>{post.liked_posts.length} Likes</Card.Meta>
-            <PostShow post={post}/>
+              <Card.Header>{post.title}</Card.Header>
+              <Card.Meta>posted: {moment(post.created_at).format("MMM Do YYYY")}</Card.Meta>
+              <Link to={{ pathname: '/post', state: { post } }}>
+                <Card.Meta>{post.liked_posts.length} Likes</Card.Meta>
+              </Link>
+              <PostShow post={post}/>
             </Card.Content>
             <Card.Content extra style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Icon 
@@ -43,8 +45,6 @@ class UsersPosts extends React.Component{
                 onClick={() => this.addLikedPost(post.id)} 
                 name='thumbs up' 
                 />
-              <Link to={{ pathname: '/post', state: { post } }}>
-              </Link>
             </Card.Content>
           </Card>
             )}  
