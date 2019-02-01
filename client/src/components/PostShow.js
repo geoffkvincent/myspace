@@ -14,7 +14,7 @@ class PostShow extends React.Component{
       <div>
         <Button size='mini' onClick={this.toggleShow}>Show Post</Button>
         <p>{ showPost ? post.body : "" }</p>
-        <div>
+        {/* <div>
           { showPost ? 
             <Comments 
               userId={userId} 
@@ -23,7 +23,7 @@ class PostShow extends React.Component{
             : 
             null 
           }
-        </div>
+        </div> */}
       </div>
     )
   }
