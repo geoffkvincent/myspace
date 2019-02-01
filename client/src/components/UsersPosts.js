@@ -32,9 +32,9 @@ class UsersPosts extends React.Component{
           {userPosts.map(post =>
           <Card key={post.id}>
             <Card.Content>
-            <Card.Meta>{post.liked_posts.length} Likes</Card.Meta>
             <Card.Header>{post.title}</Card.Header>
             <p>posted: {moment(post.created_at).format("MMM Do YYYY")}</p>
+            <Card.Meta>{post.liked_posts.length} Likes</Card.Meta>
             <PostShow post={post}/>
             </Card.Content>
             <Card.Content extra style={{ display: 'flex', justifyContent: 'flex-start' }}>
