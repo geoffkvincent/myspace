@@ -1,5 +1,4 @@
 import React from 'react'
-import Comments from './Comments'
 import { Button } from 'semantic-ui-react'
 
 class PostShow extends React.Component{
@@ -14,16 +13,6 @@ class PostShow extends React.Component{
       <div>
         <Button size='mini' onClick={this.toggleShow}>Show Post</Button>
         <p>{ showPost ? post.body : "" }</p>
-        {/* <div>
-          { showPost ? 
-            <Comments 
-              userId={userId} 
-              postId={post.id} 
-            /> 
-            : 
-            null 
-          }
-        </div> */}
       </div>
     )
   }

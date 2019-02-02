@@ -38,7 +38,8 @@ user_arr.each do |user|
     )
     10.times do
       p.comments.create(
-        text: Faker::Hipster.sentence
+        text: Faker::Hipster.sentence,
+        user_id: u.id
       )
     end
   end
